@@ -1,0 +1,96 @@
+2023-04-09 12:57:44	INFO	auto_proj_test/main.go:26	start NodeUpdateServer
+2023-04-09 13:06:07	INFO	auto_proj_test/config.go:71	save conf...
+2023-04-09 13:06:07	INFO	auto_proj_test/config.go:100	log saved
+2023-04-09 13:24:48	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-09 13:25:27	INFO	handle/requnit.go:9	start AddValidators---PPP&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x14000038100 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:49435 /add_validators <nil> <nil> <nil> 0x14000038140}
+2023-04-09 13:26:16	INFO	handle/requnit.go:9	start AddValidators---PPP&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x14000112140 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:49644 /add_validators <nil> <nil> <nil> 0x14000112180}
+2023-04-09 13:31:45	INFO	config/config.go:71	save conf...
+2023-04-09 13:31:45	INFO	config/config.go:100	log saved
+2023-04-09 13:31:56	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-09 13:32:01	INFO	handle/requnit.go:16	start AddValidators---PPP&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x1400050e240 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:51262 /add_validators <nil> <nil> <nil> 0x1400050e280}
+2023-04-09 13:32:01	INFO	logs/log.go:78	fun=AddValidatorNodeHandler() bef--,request=%v{[164.52.51.10]   }
+2023-04-09 13:32:11	INFO	config/config.go:71	save conf...
+2023-04-09 13:32:11	INFO	config/config.go:100	log saved
+2023-04-09 13:44:23	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-10 16:17:34	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-10 16:18:36	INFO	handle/requnit.go:9	start AddValidators---PPP&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[61] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x1400050e140 <nil> 61 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:63678 /add_validators <nil> <nil> <nil> 0x1400050e180}
+2023-04-10 16:19:06	INFO	config/config.go:71	save conf...
+2023-04-10 16:19:06	INFO	config/config.go:100	log saved
+2023-04-10 16:19:23	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-10 16:19:33	INFO	handle/requnit.go:16	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[61] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x14000038140 <nil> 61 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:63921 /add_validators <nil> <nil> <nil> 0x14000038180}
+2023-04-10 16:19:33	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[192.168ss] all 3D3781351A3EE9E4 }
+2023-04-10 16:20:02	INFO	config/config.go:71	save conf...
+2023-04-10 16:20:02	INFO	config/config.go:100	log saved
+2023-04-10 23:12:42	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-10 23:12:49	INFO	handle/requnit.go:16	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x14000118180 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:54826 /add_validators <nil> <nil> <nil> 0x140001181c0}
+2023-04-10 23:12:49	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.51.10]   }
+2023-04-10 23:23:50	INFO	config/config.go:71	save conf...
+2023-04-10 23:23:50	INFO	config/config.go:100	log saved
+2023-04-13 12:01:03	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-13 12:01:43	INFO	handle/requnit.go:9	start AddValidators---PPP&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x140004dadc0 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:50058 /add_validators <nil> <nil> <nil> 0x140004dae00}
+2023-04-13 12:02:19	INFO	config/config.go:71	save conf...
+2023-04-13 12:02:19	INFO	config/config.go:100	log saved
+2023-04-13 12:03:13	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-13 12:03:38	INFO	handle/requnit.go:16	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x1400045e0c0 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:50501 /add_validators <nil> <nil> <nil> 0x1400045e100}
+2023-04-13 12:05:15	INFO	handle/requnit.go:16	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[22] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x14000036100 <nil> 22 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:50947 /add_validators <nil> <nil> <nil> 0x14000036140}
+2023-04-13 12:05:15	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.51.10]   }
+2023-04-13 14:48:03	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.444]   }
+2023-04-13 14:48:04	INFO	handle/requnit.go:16	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x1400045f980 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:60907 /add_validators <nil> <nil> <nil> 0x1400045f9c0}
+2023-04-13 14:49:49	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.444LL]   }
+2023-04-13 14:52:18	INFO	handle/requnit.go:16	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x1400045e240 <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:61796 /add_validators <nil> <nil> <nil> 0x1400045fc00}
+2023-04-13 14:52:19	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.444LL]   }
+2023-04-21 10:12:21	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-21 10:12:46	INFO	handle/requnit.go:9	start AddValidators---PPP&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[64] Content-Type:[application/json] User-Agent:[curl/7.77.0]] 0x140004dad80 <nil> 64 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:59784 /add_validators <nil> <nil> <nil> 0x140004dadc0}
+2023-04-21 10:16:02	INFO	config/config.go:71	save conf...
+2023-04-21 10:16:02	INFO	config/config.go:100	log saved
+2023-04-21 10:18:33	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-21 11:13:25	INFO	handle/requnit.go:33	map[Accept:[*/*] Content-Length:[64] Content-Type:[application/json] User-Agent:[curl/7.77.0]]
+2023-04-21 11:13:25	INFO	handle/requnit.go:34	{"ips":["164.52.51.13"],"token":"3D3781351A3EE9E4","type":"bsc"}
+2023-04-21 11:13:25	INFO	handle/requnit.go:18	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[64] Content-Type:[application/json] User-Agent:[curl/7.77.0]] {{"ips":["164.52.51.13"],"token":"3D3781351A3EE9E4","type":"bsc"}} <nil> 64 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:60821 /add_validators <nil> <nil> <nil> 0x14000114140}
+2023-04-21 11:13:25	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.51.13] bsc 3D3781351A3EE9E4 }
+2023-04-23 19:28:12	INFO	config/config.go:71	save conf...
+2023-04-23 19:28:12	INFO	config/config.go:100	log saved
+2023-04-26 15:08:45	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 15:09:32	INFO	handle/requnit.go:33	map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]]
+2023-04-26 15:09:32	INFO	handle/requnit.go:34	{"ips":["164.52.51.10"]}
+2023-04-26 15:09:32	INFO	handle/requnit.go:18	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] {{"ips":["164.52.51.10"]}} <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:60111 /add_validators <nil> <nil> <nil> 0x14000038200}
+2023-04-26 15:09:32	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.51.10]   }
+2023-04-26 15:09:40	INFO	config/config.go:71	save conf...
+2023-04-26 15:09:40	INFO	config/config.go:100	log saved
+2023-04-26 15:51:06	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 15:51:11	INFO	config/config.go:71	save conf...
+2023-04-26 15:51:11	INFO	config/config.go:100	log saved
+2023-04-26 15:59:41	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 16:01:28	INFO	config/config.go:71	save conf...
+2023-04-26 16:01:28	INFO	config/config.go:100	log saved
+2023-04-26 16:01:38	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 16:01:47	INFO	config/config.go:71	save conf...
+2023-04-26 16:01:47	INFO	config/config.go:100	log saved
+2023-04-26 16:05:41	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 16:05:45	INFO	config/config.go:71	save conf...
+2023-04-26 16:05:45	INFO	config/config.go:100	log saved
+2023-04-26 16:17:59	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 16:37:03	INFO	config/config.go:71	save conf...
+2023-04-26 16:37:03	INFO	config/config.go:100	log saved
+2023-04-26 16:37:07	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-26 17:13:50	INFO	config/config.go:71	save conf...
+2023-04-26 17:13:50	INFO	config/config.go:100	log saved
+2023-04-27 10:27:46	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-27 10:27:52	INFO	config/config.go:71	save conf...
+2023-04-27 10:27:52	INFO	config/config.go:100	log saved
+2023-04-27 18:50:36	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-27 18:51:02	INFO	config/config.go:71	save conf...
+2023-04-27 18:51:02	INFO	config/config.go:100	log saved
+2023-04-27 18:57:18	INFO	auto_proj_test/main.go:31	start NodeUpdateServer
+2023-04-27 18:57:24	INFO	handle/requnit.go:33	map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]]
+2023-04-27 18:57:24	INFO	handle/requnit.go:34	{"ips":["164.52.51.10"]}
+2023-04-27 18:57:24	INFO	handle/requnit.go:18	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] {{"ips":["164.52.51.10"]}} <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:57553 /add_validators <nil> <nil> <nil> 0x140001ee400}
+2023-04-27 18:57:24	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.51.10]   }
+2023-04-27 19:06:04	INFO	tmwatch_server/main.go:31	start NodeUpdateServer
+2023-04-27 19:06:23	INFO	handle/requnit.go:33	map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]]
+2023-04-27 19:06:23	INFO	handle/requnit.go:34	{"ips":["164.52.51.10"]}
+2023-04-27 19:06:23	INFO	handle/requnit.go:18	start AddValidators---PPP--AA&{POST /add_validators HTTP/1.1 1 1 map[Accept:[*/*] Content-Length:[24] Content-Type:[application/json] User-Agent:[curl/7.77.0]] {{"ips":["164.52.51.10"]}} <nil> 24 [] false 127.0.0.1:6667 map[] map[] <nil> map[] 127.0.0.1:49615 /add_validators <nil> <nil> <nil> 0x14000036500}
+2023-04-27 19:06:23	INFO	logs/log.go:78	fun=AddValidators() bef--,request=%v{[164.52.51.10]   }
+2023-04-27 19:15:25	INFO	tmwatch_server/main.go:31	start NodeUpdateServer
+2023-05-04 14:37:01	INFO	tmwatch_server/main.go:31	start NodeUpdateServer
+2023-05-04 15:05:29	INFO	tmwatch_server/main.go:31	start NodeUpdateServer
