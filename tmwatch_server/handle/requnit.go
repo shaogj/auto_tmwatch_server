@@ -1,10 +1,12 @@
 package handle
 
 import (
-	log "202108FromBFLProj/ChainWatch_Project2023/auto_proj_test/logs"
+	log "202108FromBFLProj/auto_tmwatch_server/tmwatch_server/logs"
+
 	"bytes"
 	"github.com/gin-gonic/gin"
 	"io"
+	"net"
 )
 
 type IPData struct {
@@ -34,4 +36,16 @@ func RequestLoggerMiddleware() gin.HandlerFunc {
 		log.Logger.Info(string(body))
 		c.Next()
 	}
+}
+
+func GetOutboundIP() net.IP {
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer conn.Close()
+
+	localAddr := conn.LocalAddr().(*net.UDPAddr)
+
+	return localAddr.IP
 }

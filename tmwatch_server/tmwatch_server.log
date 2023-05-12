@@ -1,0 +1,172 @@
+2023-05-12 12:21:06	INFO	tmwatch_server/main.go:25	tm watch server--start!
+2023-05-12 12:21:06	INFO	tmwatch_server/main.go:26	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-12 12:21:06	INFO	tmwatch_server/main.go:27	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-12 12:21:06	INFO	tmwatch_server/main.go:28	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-12 12:21:06	INFO	tmwatch_server/main.go:33	to run StartClusterStatusProc()
+2023-05-12 12:22:32	INFO	tmwatch_server/main.go:61	Shutdown Server ...
+2023-05-12 12:22:33	INFO	tmwatch_server/main.go:73	timeout of 5 seconds.
+2023-05-12 12:22:33	INFO	tmwatch_server/main.go:75	Server exiting
+2023-05-12 12:22:36	INFO	tmwatch_server/main.go:25	tm watch server--start!
+2023-05-12 12:22:36	INFO	tmwatch_server/main.go:26	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-12 12:22:36	INFO	tmwatch_server/main.go:27	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-12 12:22:36	INFO	tmwatch_server/main.go:28	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-12 12:22:36	INFO	tmwatch_server/main.go:33	to run StartClusterStatusProc()
+2023-05-12 12:22:37	INFO	tmwatch_server/main.go:61	Shutdown Server ...
+2023-05-12 12:22:38	INFO	tmwatch_server/main.go:73	timeout of 5 seconds.
+2023-05-12 12:22:38	INFO	tmwatch_server/main.go:75	Server exiting
+2023-05-12 12:22:44	INFO	tmwatch_server/main.go:25	tm watch server--start!
+2023-05-12 12:22:44	INFO	tmwatch_server/main.go:26	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-12 12:22:44	INFO	tmwatch_server/main.go:27	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-12 12:22:44	INFO	tmwatch_server/main.go:28	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-12 12:22:44	INFO	tmwatch_server/main.go:33	to run StartClusterStatusProc()
+2023-05-12 12:28:08	INFO	tmwatch_server/main.go:61	Shutdown Server ...
+2023-05-12 12:28:09	INFO	tmwatch_server/main.go:73	timeout of 5 seconds.
+2023-05-12 12:28:09	INFO	tmwatch_server/main.go:75	Server exiting
+2023-05-12 12:28:14	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-12 12:28:14	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-12 12:28:14	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-12 12:28:14	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-12 12:28:14	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-12 12:28:14	INFO	handle/tm_monitor_part.go:222	cur GetClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 12:33:44	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-12 12:33:45	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-12 12:33:45	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-12 12:34:00	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-12 12:34:00	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-12 12:34:00	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-12 12:34:00	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-12 12:34:00	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:221	cur GetClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:175	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 12:34:00	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:Get "http://101.251.223.190:46657/tri_abci_info": EOF
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": EOF}
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :2,tmHeight: 106.3.133.180:3396
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:3396
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3396 106.3.133.180} <nil>}
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3396 210.73.218.172} <nil>}
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:3396
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3396 210.73.218.171} <nil>}
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :1,tmHeight: 106.3.133.179:3396
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:3396
+
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3396 106.3.133.179} <nil>}
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3396 106.3.133.178} <nil>}
+2023-05-12 12:34:00	INFO	handle/tm_monitor_part.go:227	after check all tm's IPlist,by GetClusterHStatus() getinfo: {[{0 101.251.223.190} {3396 106.3.133.180} {3396 210.73.218.172} {3396 210.73.218.171} {3396 106.3.133.179} {3396 106.3.133.178}]},err is:<nil> 
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:233	after GetClusterHStatus(), check tmchain height is increase! get newMaxHeight is :3396,lastMaxHeight is:0,
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:175	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :2,tmHeight: 106.3.133.180:3399
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :1,tmHeight: 106.3.133.179:3399
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3399 106.3.133.180} <nil>}
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3399 106.3.133.179} <nil>}
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:3399
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3399 210.73.218.172} <nil>}
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:3399
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3399 210.73.218.171} <nil>}
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:3399
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3399 106.3.133.178} <nil>}
+2023-05-12 12:34:07	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:Get "http://101.251.223.190:46657/tri_abci_info": EOF
+
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": EOF}
+2023-05-12 12:34:07	INFO	handle/tm_monitor_part.go:227	after check all tm's IPlist,by GetClusterHStatus() getinfo: {[{3399 106.3.133.180} {3399 106.3.133.179} {3399 210.73.218.172} {3399 210.73.218.171} {3399 106.3.133.178} {0 101.251.223.190}]},err is:<nil> 
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:233	after GetClusterHStatus(), check tmchain height is increase! get newMaxHeight is :3399,lastMaxHeight is:3396,
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:175	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :2,tmHeight: 106.3.133.180:3403
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3403 106.3.133.180} <nil>}
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:3403
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3403 210.73.218.172} <nil>}
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :1,tmHeight: 106.3.133.179:3403
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3403 106.3.133.179} <nil>}
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:3403
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:3403
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3403 210.73.218.171} <nil>}
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{3403 106.3.133.178} <nil>}
+2023-05-12 12:34:14	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:Get "http://101.251.223.190:46657/tri_abci_info": EOF
+
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": EOF}
+2023-05-12 12:34:14	INFO	handle/tm_monitor_part.go:227	after check all tm's IPlist,by GetClusterHStatus() getinfo: {[{3403 106.3.133.180} {3403 210.73.218.172} {3403 106.3.133.179} {3403 210.73.218.171} {3403 106.3.133.178} {0 101.251.223.190}]},err is:<nil> 
+
+2023-05-12 12:34:21	INFO	handle/tm_monitor_part.go:233	after GetClusterHStatus(), check tmchain height is increase! get newMaxHeight is :3403,lastMaxHeight is:3399,
+
+2023-05-12 12:53:07	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-12 12:53:08	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-12 12:53:08	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-12 17:06:55	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-12 17:06:55	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-12 17:06:55	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-12 17:06:55	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-12 17:06:55	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:221	cur GetClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:175	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 17:06:55	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4958
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 210.73.218.171} <nil>}
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :2,tmHeight: 106.3.133.180:4958
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.180} <nil>}
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :1,tmHeight: 106.3.133.179:4958
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4958
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.179} <nil>}
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.178} <nil>}
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4950
+
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4950 210.73.218.172} <nil>}
+2023-05-12 17:06:55	INFO	handle/tm_monitor_part.go:227	after check all tm's IPlist,by GetClusterHStatus() getinfo: {[{0 101.251.223.190} {4958 210.73.218.171} {4958 106.3.133.180} {4958 106.3.133.179} {4958 106.3.133.178} {4950 210.73.218.172}]},err is:<nil> 
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:233	after GetClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4958,lastMaxHeight is:0,
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:175	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4958
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :2,tmHeight: 106.3.133.180:4958
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 210.73.218.171} <nil>}
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.180} <nil>}
+2023-05-12 17:07:02	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4950
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :1,tmHeight: 106.3.133.179:4958
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4958
+
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.178} <nil>}
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4950 210.73.218.172} <nil>}
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.179} <nil>}
+2023-05-12 17:07:02	INFO	handle/tm_monitor_part.go:227	after check all tm's IPlist,by GetClusterHStatus() getinfo: {[{4958 210.73.218.171} {4958 106.3.133.180} {0 101.251.223.190} {4958 106.3.133.178} {4950 210.73.218.172} {4958 106.3.133.179}]},err is:<nil> 
+
+2023-05-12 17:07:04	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-12 17:07:05	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-12 17:07:05	INFO	tmwatch_server/main.go:76	Server exiting

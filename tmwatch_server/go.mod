@@ -1,4 +1,4 @@
-module 202108FromBFLProj/ChainWatch_Project2023/auto_proj_test
+module 202108FromBFLProj/auto_tmwatch_server/tmwatch_server
 
 go 1.19
 

@@ -1,15 +1,20 @@
 package handle
 
 import (
+	"202108FromBFLProj/auto_tmwatch_server/tmwatch_server/config"
+	"202108FromBFLProj/auto_tmwatch_server/tmwatch_server/logs"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"go.uber.org/zap"
 	"io"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
 )
+
+var GLogger *zap.SugaredLogger
 
 // 节点块高
 type NodeH struct {
@@ -155,12 +160,19 @@ func GetMaxH(tms ClusterHStatus) int64 {
 func GetIps(nodeType string) []string {
 	return []string{"148.153.184.138", "164.52.93.91", "148.153.184.133"}
 }
-func GetClusterHStatus(nodeType string) (ClusterHStatus, error) {
+
+func GetBjIps(nodeType string) []string {
+	return []string{"106.3.133.178", "106.3.133.179", "106.3.133.180", "210.73.218.171", "210.73.218.172"}
+}
+func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, error) {
 	var cluster ClusterHStatus
 
-	ips := GetIps(nodeType)
+	//0512doing,bjenv
+	//ips := GetBjIps(nodeType)
+	ips := tmnodelist
 	//0426,checking, from fmt.Println
-	fmt.Printf("to check tm ip list len is:%d, info is:%s\n", len(ips), ips)
+	//fmt.Printf
+	GLogger.Infof("to check tm GetBjIps()' ip list len is:%d, info is:%s\n", len(ips), ips)
 	results := make(chan ChResult, len(ips))
 	for ino, tmIp := range ips {
 		go func(ino int, ip string) {
@@ -173,23 +185,77 @@ func GetClusterHStatus(nodeType string) (ClusterHStatus, error) {
 				fmt.Println(err)
 				fmt.Println(ip)
 				chResult.Err = err
-				fmt.Printf("cur GetTmHeight() res error! ,cur node ip:%s, height is:%d:%v\n", ip, h, err)
+				//0512,to mark err ip
+				GLogger.Errorf("cur GetTmHeight() res error! ,cur node ip:%s, height is:%d:%v\n", ip, h, err)
 				results <- chResult
 				return
 			}
 			chResult.H.Height = h
-			fmt.Printf("get GetTmHeight() res info : serion id :%d,tmHeight: %s:%d\n", ino, chResult.H.Ip, chResult.H.Height)
+			GLogger.Infof("get GetTmHeight() res info : serion id :%d,tmHeight: %s:%d\n", ino, chResult.H.Ip, chResult.H.Height)
 			results <- chResult
 		}(ino, tmIp)
 	}
 
 	for i := 0; i < len(ips); i++ {
 		result := <-results
-		fmt.Println("get cur chan result infois :%v", result)
+		GLogger.Infof("get cur chan result infois :%v", result)
 
 		cluster.Nodes = append(cluster.Nodes, result.H)
 
 	}
 	close(results)
 	return cluster, nil
+}
+
+func StartClusterStatusProc() {
+	times := 0
+	errtimes := 0
+	retry := 3
+	var lastMaxHeight int64
+	var newMaxHeight int64
+	var tmnodelist []string
+	for _, host := range config.Conf.TM {
+		tmnodelist = append(tmnodelist, host.Ip)
+	}
+	//0512doing,,//log.Logger
+	GLogger.Infof("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
+	//fmt.Printf("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
+
+	//return
+	for times < retry {
+		tms, err := GetClusterHStatus("tm", tmnodelist)
+		GLogger.Infof("after check all tm's IPlist,by GetClusterHStatus() getinfo: %v,err is:%v \n", tms, err)
+		//0504checking
+		time.Sleep(time.Duration(7) * time.Second)
+		newMaxHeight = GetMaxH(tms)
+		if newMaxHeight > lastMaxHeight {
+			//fmt.Printf
+			GLogger.Infof("after GetClusterHStatus(), check tmchain height is increase! get newMaxHeight is :%d,lastMaxHeight is:%d,\n", newMaxHeight, lastMaxHeight)
+			lastMaxHeight = newMaxHeight
+		} else {
+			errtimes++
+			GLogger.Infof("after GetClusterHStatus() ,check tmchain height is increase no ! errtimes is :%d,get newMaxHeight is :%d,lastMaxHeight is:%d,\n", errtimes, newMaxHeight, lastMaxHeight)
+			//0512add
+			if errtimes > 2 {
+				//POST '127.0.0.1:6667/sync_tm_snapdata'
+				url := "http://127.0.0.1:6667/sync_tm_snapdata"
+				fileTime := "0512datanoon"
+				GLogger.Infof("cur check tmchain is increase no errtimes is :%d,newMaxHeight is :%d,to invoke SendCompressBscRequest()\n", errtimes, newMaxHeight)
+				SendCompressBscRequest(url, fileTime)
+			}
+		}
+		times++
+	}
+
+	//}()
+
+}
+
+func SendCompressBscRequest(url, fileTime string) {
+	autoIp := GetOutboundIP().String()
+
+	payload := strings.NewReader(fmt.Sprintf(`{"token":"%s","autoIp":"%s", "fileTime":"%s"}`, config.Conf.TMClusterMonitor.AccessToken, autoIp, fileTime))
+	log.Logger.Infof("send snaprecover for tm' request :%+v", payload)
+	post(url, payload)
+
 }
