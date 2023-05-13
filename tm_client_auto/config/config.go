@@ -32,9 +32,10 @@ type Monitor struct {
 
 }
 type ServiceConf struct {
-	Port     int    `toml:"port" comment:"服务端口默认为6667"`
-	LogLevel string `toml:"log-level" comment:"日志等级int类型默认为info; debug || info || warn || error"`
-	LogPath  string `toml:"log-path" comment:"日志路径,默认为update.log"`
+	Port        int    `toml:"port" comment:"服务端口默认为6667"`
+	LogLevel    string `toml:"log-level" comment:"日志等级int类型默认为info; debug || info || warn || error"`
+	LogPath     string `toml:"log-path" comment:"日志路径,默认为update.log"`
+	AccessToken string `toml:"access-token" comment:"访问tmwatch-client的请求token"`
 }
 
 type Config struct {

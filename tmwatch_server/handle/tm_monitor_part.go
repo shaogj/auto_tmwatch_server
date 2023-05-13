@@ -208,6 +208,15 @@ func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, er
 }
 
 func StartClusterStatusProc() {
+	//0513test
+	/*good invoke
+	url := "http://127.0.0.1:6667/sync_tm_snapdata"
+	fileTime := "0512datanoon"
+	fmt.Printf("cur check SendTmSnapRecoverRequest()!")
+	//SendCompressBscRequest(url, fileTime)
+	SendTmSnapRecoverRequest(url, fileTime)
+	return
+	*/
 	times := 0
 	errtimes := 0
 	retry := 3
@@ -234,14 +243,15 @@ func StartClusterStatusProc() {
 			lastMaxHeight = newMaxHeight
 		} else {
 			errtimes++
-			GLogger.Infof("after GetClusterHStatus() ,check tmchain height is increase no ! errtimes is :%d,get newMaxHeight is :%d,lastMaxHeight is:%d,\n", errtimes, newMaxHeight, lastMaxHeight)
+			GLogger.Errorf("after GetClusterHStatus() ,check tmchain height is increase no ! errtimes is :%d,get newMaxHeight is :%d,lastMaxHeight is:%d,\n", errtimes, newMaxHeight, lastMaxHeight)
 			//0512add
 			if errtimes > 2 {
 				//POST '127.0.0.1:6667/sync_tm_snapdata'
 				url := "http://127.0.0.1:6667/sync_tm_snapdata"
 				fileTime := "0512datanoon"
 				GLogger.Infof("cur check tmchain is increase no errtimes is :%d,newMaxHeight is :%d,to invoke SendCompressBscRequest()\n", errtimes, newMaxHeight)
-				SendCompressBscRequest(url, fileTime)
+				//SendCompressBscRequest(url, fileTime)
+				SendTmSnapRecoverRequest(url, fileTime)
 			}
 		}
 		times++
@@ -256,6 +266,15 @@ func SendCompressBscRequest(url, fileTime string) {
 
 	payload := strings.NewReader(fmt.Sprintf(`{"token":"%s","autoIp":"%s", "fileTime":"%s"}`, config.Conf.TMClusterMonitor.AccessToken, autoIp, fileTime))
 	log.Logger.Infof("send snaprecover for tm' request :%+v", payload)
+	post(url, payload)
+
+}
+
+func SendTmSnapRecoverRequest(url, fileTime string) {
+	autoIp := GetOutboundIP().String()
+	//{"auto_ip":"192,135","optype":"restoredata","snap_data_time":"20230513","token":"4444"}
+	payload := strings.NewReader(fmt.Sprintf(`{"auto_ip":"%s","optype":"%s","snap_data_time":"%s", "token":"%s"}`, autoIp, "restoredata", fileTime, config.Conf.TMClusterMonitor.AccessToken))
+	log.Logger.Infof("send tmnode snaprecover for tm' request :%+v", payload)
 	post(url, payload)
 
 }

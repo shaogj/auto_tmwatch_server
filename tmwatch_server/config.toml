@@ -72,4 +72,5 @@
   monitor-rpc = 8546
 
   # 用于触发tmclient请求的access token
-  access-token = "1234567"
+  access-token = "3333"
+  #access-token = "1234567"

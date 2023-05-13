@@ -1,6 +1,7 @@
 package handle
 
 import (
+	"202108FromBFLProj/auto_tmwatch_server/tm_client_auto/config"
 	log "202108FromBFLProj/auto_tmwatch_server/tm_client_auto/logs"
 	"bytes"
 	"fmt"
@@ -104,9 +105,7 @@ func sendTmSnapScriptCmd(optype, source, realsnaptimedir string) {
 	redirtmFile := fmt.Sprintf("%s//client_recoverruntm%s.log", curPath, timeToday)
 	log.Logger.Infof("In sendScriptCmd(),check redirFile is:%s", redirFile)
 	/*
-		//ing---cmdChaindata := exec.Command("/bin/sh", "-c", fmt.Sprintf("tar -zcvf /data/node/geth/chaindata_%s.tar.gz /data/node/geth/chaindata >> %s 2>&1", fileTime, redirFile))
 		cmdChaindatalocal := exec.Command("/bin/sh", "-c", fmt.Sprintf("tar -zcvf %s/fabric0926_%s.tar.gz /Users/gejians/go/src/2021New_BFLProjTotal/0424NewTMEnvRes/fabric0926 >> %s 2>&1", curPath, fileTime, redirFile))
-		log.Logger.Infof("start tar chaindata...")
 		ExecCmd(cmdChaindatalocal)
 		log.Logger.Infof("exec tar zcvf finished!...")
 	*/
@@ -145,8 +144,8 @@ func SyncTmSnapData(c *gin.Context) {
 	log.Logger.Infof("fun=SyncTmSnapData()--receive sync tm snapdata request %+v", syncDataRequest)
 	//log.Logger.Infof("fun=SyncTmSnapData()--receive sync tm snapdata request:Token is %+v", syncDataRequest.Token)
 
-	if syncDataRequest.Token != "4444" { //viper.GetString("token") {
-		log.Logger.Errorf("fun=SyncTmSnapData() requeset's Params Token is invalid! req Token=%v", syncDataRequest.Token)
+	if syncDataRequest.Token != config.Conf.Service.AccessToken { //"4444"  //viper.GetString("token") {
+		log.Logger.Errorf("fun=SyncTmSnapData() requeset's Params Token is invalid! req Token=%v,cfg's AccessToken is;%s ", syncDataRequest.Token, config.Conf.Service.AccessToken)
 		c.IndentedJSON(http.StatusBadRequest, gin.H{"msg": "async request SyncTmSnapData, StatusBadRequest token!"})
 		return
 	}

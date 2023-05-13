@@ -1,0 +1,48 @@
+/Users/gejianspro/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh: line 12: /data/node/geth: No such file or directory
+to exec scp to get bsc snapdata from IP node: 192.168.1.224
+cur scpsnaptime is: 202305131247
+get invoke request' params num is :3
+get DESC_SNAP_DIR' request params num is :0525
+to exec GetSnapDataFromRemoteNode(),to scp bsc snapdate from node，IP is:
+192.168.1.224
+to scp from desc ip dir is:0525
+0525
+get curBscSnapTime value is: 202305131247
+cur work dir curBscSnapTime value is: 202305131247,start scp datafrom remote ip!
+ssh: connect to host 192.168.1.224 port 22: Operation timed out
+Warning: Identity file /root/bscWatchTest/Key_dev-user_rsa-Local-0422 not accessible: No such file or directory.
+ssh: connect to host 192.168.1.224 port 22: Operation timed out
+cur work dir:202305131247,get snapdata from:192.168.1.224 finished!
+step2,cur exec RecoverDataFromSnap proc.RecoverDataFromSnap is: 202305131247
+cur time is:20230513124945,get snapdata from:192.168.1.224,finished,to replace data to local bsc gethdata!
+/Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023
+mv: rename /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/triecache to /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/triecache_baklast_202305131249: No such file or directory
+get copy RecoverData,FromSnap dir: 202305131247
+cp: ./chaindata_0525.tar.gz: No such file or directory
+cp: ./triecache_0525.tar.gz: No such file or directory
+get RecoverDataFromSnap finished!
+x chaindata/
+x chaindata/000002.ldb
+x chaindata/MANIFEST-000004
+x chaindata/LOG
+x chaindata/CURRENT.bak
+x chaindata/000003.log
+x chaindata/CURRENT
+x chaindata/LOCK
+x chaindata/ancient/
+x chaindata/ancient/bodies.0000.cdat
+x chaindata/ancient/headers.cidx
+x chaindata/ancient/diffs.ridx
+x chaindata/ancient/hashes.ridx
+x chaindata/ancient/hashes.0000.rdat
+x chaindata/ancient/bodies.cidx
+x chaindata/ancient/headers.0000.cdat
+x chaindata/ancient/receipts.cidx
+x chaindata/ancient/FLOCK
+x chaindata/ancient/receipts.0000.cdat
+x chaindata/ancient/diffs.0000.rdat
+tar: Error opening archive: Failed to open '/Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/triecache_0525.tar.gz'
+get tar file to datadir finished!
+to exec docker restart trust_zkbsc,curtime is: 202305131247
+/Users/gejianspro/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh: line 126: docker: command not found
+after exec docker restart trust_zkbsc,curtime is: curBscSnapTimeafter

@@ -170,3 +170,60 @@
 2023-05-12 17:07:04	INFO	tmwatch_server/main.go:62	Shutdown Server ...
 2023-05-12 17:07:05	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
 2023-05-12 17:07:05	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-13 12:29:14	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-13 12:29:14	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-13 12:29:14	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-13 12:29:14	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-13 12:29:14	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-13 12:29:14	INFO	handle/tm_monitor_part.go:221	cur GetClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-13 12:29:14	INFO	handle/tm_monitor_part.go:175	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-13 12:29:14	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-13 12:29:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-13 12:29:14	INFO	handle/tm_monitor_part.go:194	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4958
+
+2023-05-13 12:29:14	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{4958 106.3.133.178} <nil>}
+2023-05-13 12:29:44	ERROR	handle/tm_monitor_part.go:189	cur GetTmHeight() res error! ,cur node ip:210.73.218.171, height is:0:Get "http://210.73.218.171:46657/tri_abci_info": dial tcp 210.73.218.171:46657: i/o timeout
+
+2023-05-13 12:29:44	INFO	handle/tm_monitor_part.go:201	get cur chan result infois :{{0 210.73.218.171} Get "http://210.73.218.171:46657/tri_abci_info": dial tcp 210.73.218.171:46657: i/o timeout}
+2023-05-13 12:29:48	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-13 12:29:49	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-13 12:29:49	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-13 12:45:37	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-13 12:45:37	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-13 12:45:37	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 1234567}:
+2023-05-13 12:45:37	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-13 12:45:37	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-13 12:45:37	INFO	handle/tm_monitor_part.go:276	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"192.168.1.2","optype":"restoredata","snap_data_time":"0512datanoon", "token":"1234567"} i:0 prevRune:-1}
+2023-05-13 12:47:13	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-13 12:47:14	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-13 12:47:14	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-13 12:47:15	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-13 12:47:15	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-13 12:47:15	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 4444}:
+2023-05-13 12:47:15	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-13 12:47:15	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-13 12:47:15	INFO	handle/tm_monitor_part.go:276	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"192.168.1.2","optype":"restoredata","snap_data_time":"0512datanoon", "token":"4444"} i:0 prevRune:-1}
+2023-05-13 12:47:34	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-13 12:47:35	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-13 12:47:35	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-13 12:53:25	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-13 12:53:25	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-13 12:53:25	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 4444}:
+2023-05-13 12:53:25	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-13 12:53:25	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-13 12:53:25	INFO	handle/tm_monitor_part.go:276	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"192.168.1.2","optype":"restoredata","snap_data_time":"0512datanoon", "token":"4444"} i:0 prevRune:-1}
+2023-05-13 12:53:34	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-13 12:53:35	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-13 12:53:35	INFO	tmwatch_server/main.go:76	Server exiting
+2023-05-13 12:53:56	INFO	tmwatch_server/main.go:26	tm watch server--start!
+2023-05-13 12:53:56	INFO	tmwatch_server/main.go:27	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-13 12:53:56	INFO	tmwatch_server/main.go:28	get config.toml' TMClusterMonitor info ===>:{600 120 8546 3333}:
+2023-05-13 12:53:56	INFO	tmwatch_server/main.go:29	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-13 12:53:56	INFO	tmwatch_server/main.go:34	to run StartClusterStatusProc()
+2023-05-13 12:53:56	INFO	handle/tm_monitor_part.go:276	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"192.168.1.2","optype":"restoredata","snap_data_time":"0512datanoon", "token":"3333"} i:0 prevRune:-1}
+2023-05-13 12:55:37	INFO	tmwatch_server/main.go:62	Shutdown Server ...
+2023-05-13 12:55:38	INFO	tmwatch_server/main.go:74	timeout of 5 seconds.
+2023-05-13 12:55:38	INFO	tmwatch_server/main.go:76	Server exiting

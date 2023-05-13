@@ -30,3 +30,6 @@
   log-level = "info"
   # 日志路径,默认为update.log
   log-path = "./tmwatch_client.log"
+
+  # 用于触发tmclient请求的access token
+  access-token = "3333"
