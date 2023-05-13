@@ -216,6 +216,7 @@ func StartClusterStatusProc() {
 	//SendCompressBscRequest(url, fileTime)
 	SendTmSnapRecoverRequest(url, fileTime)
 	return
+	
 	*/
 	times := 0
 	errtimes := 0
