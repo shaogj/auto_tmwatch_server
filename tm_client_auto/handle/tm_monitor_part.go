@@ -1,12 +1,10 @@
 package handle
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 	"net/http"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -116,80 +114,4 @@ func get(url string) ([]byte, error) {
 		return nil, err
 	}
 	return body, nil
-}
-
-func GetTmHeight(ip string) (int64, error) {
-
-	var res TmHResponse
-	url := "http://" + ip + ":46657/tri_abci_info"
-	r, err := get(url)
-	if err != nil {
-		return 0, err
-	}
-	err = json.Unmarshal(r, &res)
-	if err != nil {
-		fmt.Println("%s", r)
-		fmt.Println(ip)
-		return 0, err
-	}
-	if res.Result.Response.LastBlockHeight == "" {
-		res.Result.Response.LastBlockHeight = "0"
-	}
-	h, err := strconv.ParseInt(res.Result.Response.LastBlockHeight, 10, 64)
-	if err != nil {
-		return 0, err
-	}
-	return h, nil
-
-}
-
-func GetMaxH(tms ClusterHStatus) int64 {
-	var max int64
-	for _, host := range tms.Nodes {
-		if host.Height > max {
-			max = host.Height
-		}
-	}
-	return max
-}
-func GetIps(nodeType string) []string {
-	return []string{"148.153.184.138", "164.52.93.91", "148.153.184.133"}
-}
-func GetClusterHStatus(nodeType string) (ClusterHStatus, error) {
-	var cluster ClusterHStatus
-
-	ips := GetIps(nodeType)
-	//0426,checking, from fmt.Println
-	fmt.Printf("to check tm ip list len is:%d, info is:%s\n", len(ips), ips)
-	results := make(chan ChResult, len(ips))
-	for ino, tmIp := range ips {
-		go func(ino int, ip string) {
-			var chResult ChResult
-			chResult.H.Ip = ip
-
-			h, err := GetTmHeight(ip)
-			//0426doing
-			if err != nil {
-				fmt.Println(err)
-				fmt.Println(ip)
-				chResult.Err = err
-				fmt.Printf("cur GetTmHeight() res error! ,cur node ip:%s, height is:%d:%v\n", ip, h, err)
-				results <- chResult
-				return
-			}
-			chResult.H.Height = h
-			fmt.Printf("get GetTmHeight() res info : serion id :%d,tmHeight: %s:%d\n", ino, chResult.H.Ip, chResult.H.Height)
-			results <- chResult
-		}(ino, tmIp)
-	}
-
-	for i := 0; i < len(ips); i++ {
-		result := <-results
-		fmt.Println("get cur chan result infois :%v", result)
-
-		cluster.Nodes = append(cluster.Nodes, result.H)
-
-	}
-	close(results)
-	return cluster, nil
 }

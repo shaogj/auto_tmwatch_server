@@ -51,7 +51,26 @@ type HeightOkHosts struct {
 
 // 钉钉异常通知text
 type ErrText struct {
-	Content []HeightErrHost `json:"content"`
+	//0515add
+	AlarmLevelInfo string          `json:"alarm_level_info"`
+	Content        []HeightErrHost `json:"content"`
+}
+
+// 钉钉解除异常通知text
+type OkText struct {
+	Content HeightOkHosts `json:"content"`
+}
+
+// 钉钉异常通知消息
+type DingErrMsg struct {
+	MsgType string  `json:"msgtype"`
+	Text    ErrText `json:"text"`
+}
+
+// 钉钉异常解除通知消息
+type DingOkMsg struct {
+	MsgType string `json:"msgtype"`
+	Text    OkText `json:"text"`
 }
 
 var (
@@ -102,7 +121,7 @@ func get(url string) ([]byte, error) {
 	// url := "http://106.3.133.179:46657/tri_block_info?height=104360"
 
 	client := &http.Client{}
-	client.Timeout = time.Second * 60
+	client.Timeout = time.Second * 5 //2023.0515doing--60
 	req, err := http.NewRequest("GET", url, nil)
 
 	if err != nil {
@@ -157,9 +176,6 @@ func GetMaxH(tms ClusterHStatus) int64 {
 	}
 	return max
 }
-func GetIps(nodeType string) []string {
-	return []string{"148.153.184.138", "164.52.93.91", "148.153.184.133"}
-}
 
 func GetBjIps(nodeType string) []string {
 	return []string{"106.3.133.178", "106.3.133.179", "106.3.133.180", "210.73.218.171", "210.73.218.172"}
@@ -186,7 +202,7 @@ func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, er
 				fmt.Println(ip)
 				chResult.Err = err
 				//0512,to mark err ip
-				GLogger.Errorf("cur GetTmHeight() res error! ,cur node ip:%s, height is:%d:%v\n", ip, h, err)
+				GLogger.Errorf("cur GetTmHeight() res error! ,cur node ip:%s, height is:%d:,err is:%v\n", ip, h, err)
 				results <- chResult
 				return
 			}
@@ -207,6 +223,8 @@ func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, er
 	return cluster, nil
 }
 
+//0515add
+
 func StartClusterStatusProc() {
 	//0513test
 	/*good invoke
@@ -216,7 +234,9 @@ func StartClusterStatusProc() {
 	//SendCompressBscRequest(url, fileTime)
 	SendTmSnapRecoverRequest(url, fileTime)
 	return
+	//0515
 	*/
+
 	times := 0
 	errtimes := 0
 	retry := 3
@@ -229,7 +249,22 @@ func StartClusterStatusProc() {
 	//0512doing,,//log.Logger
 	GLogger.Infof("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
 	//fmt.Printf("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
+	//0515add
+	/*
+		errPrefix := config.Conf.TmMonitor.ErrPrefixKey
+		dingurl := config.Conf.TmMonitor.DingUrl
+		//okPrefix := config/Conf.TmMonitor.OkPrefixKey
+		lastMaxHeight = 7004
+		content := GenTmErrMsg(tmnodelist, "tm", errPrefix, lastMaxHeight)
+		nodeType := "TM"
+		//0515add
+		GLogger.Infof("cur check dingding GenErrMsg(), get content info: %s\n", content)
 
+		sendMsg(dingurl, nodeType, content)
+
+		return
+	*/
+	//end 0515
 	//return
 	for times < retry {
 		tms, err := GetClusterHStatus("tm", tmnodelist)
@@ -244,8 +279,17 @@ func StartClusterStatusProc() {
 		} else {
 			errtimes++
 			GLogger.Errorf("after GetClusterHStatus() ,check tmchain height is increase no ! errtimes is :%d,get newMaxHeight is :%d,lastMaxHeight is:%d,\n", errtimes, newMaxHeight, lastMaxHeight)
-			//0512add
-			if errtimes > 2 {
+			//0512add,0515doing
+			if errtimes >= 2 {
+				//0515add
+				errPrefix := config.Conf.TmMonitor.ErrPrefixKey
+				dingurl := config.Conf.TmMonitor.DingUrl
+				//okPrefix := config/Conf.TmMonitor.OkPrefixKey
+				content := GenTmErrMsg(tmnodelist, "tm", errPrefix, lastMaxHeight)
+				nodeType := "TM"
+				sendMsg(dingurl, nodeType, content)
+				GLogger.Infof("cur check dingding GenErrMsg(), to send content info: %s\n", content)
+
 				//POST '127.0.0.1:6667/sync_tm_snapdata'
 				url := "http://127.0.0.1:6667/sync_tm_snapdata"
 				fileTime := "0512datanoon"

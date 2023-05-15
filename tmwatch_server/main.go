@@ -26,6 +26,7 @@ func main() {
 	log.Logger.Infof("tm watch server--start!")
 	log.Logger.Infof("get config.toml info ===>:%v:", config.Conf.Service)
 	log.Logger.Infof("get config.toml' TMClusterMonitor info ===>:%v:", config.Conf.TMClusterMonitor)
+	log.Logger.Infof("get config.toml' TMClusterMonitor's TmMonitor is ===>:%v:", config.Conf.TmMonitor)
 	log.Logger.Infof("get config.toml' Host'TM info ===>:%v:", config.Conf.TM)
 	//level := config.Conf.Service.LogLevel
 	/*	go TMWatch()
