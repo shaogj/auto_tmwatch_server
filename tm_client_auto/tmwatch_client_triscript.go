@@ -35,7 +35,7 @@ func main() {
 	log.LogInit(config.Conf.Service.LogLevel, config.Conf.Service.LogPath)
 
 	log.Logger.Infof("tm watch server--start!")
-	log.Logger.Infof("get config.toml info ===>:%v:", config.Conf.Service)
+	log.Logger.Infof("get config.toml of client info ===>:%v:", config.Conf.Service)
 
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()

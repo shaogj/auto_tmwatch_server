@@ -215,6 +215,9 @@ func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, er
 	for i := 0; i < len(ips); i++ {
 		result := <-results
 		GLogger.Infof("get cur chan result infois :%v", result)
+		if result.Err != nil {
+			GLogger.Errorf("cur req tm node rpc is error! cur node Ip is :%v,height is:%d，to restart the node!", result.H.Ip, result.H.Height)
+		}
 
 		cluster.Nodes = append(cluster.Nodes, result.H)
 
@@ -231,11 +234,9 @@ func StartClusterStatusProc() {
 	url := "http://127.0.0.1:6667/sync_tm_snapdata"
 	fileTime := "0512datanoon"
 	fmt.Printf("cur check SendTmSnapRecoverRequest()!")
-	//SendCompressBscRequest(url, fileTime)
 	SendTmSnapRecoverRequest(url, fileTime)
 	return
 	//0515
-
 	*/
 
 	times := 0
@@ -247,31 +248,14 @@ func StartClusterStatusProc() {
 	for _, host := range config.Conf.TM {
 		tmnodelist = append(tmnodelist, host.Ip)
 	}
-	//0512doing,,//log.Logger
 	GLogger.Infof("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
-	//fmt.Printf("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
-	//0515add
-	/*
-		errPrefix := config.Conf.TmMonitor.ErrPrefixKey
-		dingurl := config.Conf.TmMonitor.DingUrl
-		//okPrefix := config/Conf.TmMonitor.OkPrefixKey
-		lastMaxHeight = 7004
-		content := GenTmErrMsg(tmnodelist, "tm", errPrefix, lastMaxHeight)
-		nodeType := "TM"
-		//0515add
-		GLogger.Infof("cur check dingding GenErrMsg(), get content info: %s\n", content)
-
-		sendMsg(dingurl, nodeType, content)
-
-		return
-	*/
-	//end 0515
 	//return
+	//0516,to up {
 	for times < retry {
 		tms, err := GetClusterHStatus("tm", tmnodelist)
 		GLogger.Infof("after check all tm's IPlist,by GetClusterHStatus() getinfo: %v,err is:%v \n", tms, err)
 		//0504checking
-		time.Sleep(time.Duration(7) * time.Second)
+		//time.Sleep(time.Duration(7) * time.Second)
 		newMaxHeight = GetMaxH(tms)
 		if newMaxHeight > lastMaxHeight {
 			//fmt.Printf
@@ -293,25 +277,18 @@ func StartClusterStatusProc() {
 
 				//POST '127.0.0.1:6667/sync_tm_snapdata'
 				url := "http://127.0.0.1:6667/sync_tm_snapdata"
-				fileTime := "0512datanoon"
+				fileTime := "0514datanoon_torealsnapdata"
 				GLogger.Infof("cur check tmchain is increase no errtimes is :%d,newMaxHeight is :%d,to invoke SendCompressBscRequest()\n", errtimes, newMaxHeight)
 				//SendCompressBscRequest(url, fileTime)
 				SendTmSnapRecoverRequest(url, fileTime)
 			}
 		}
 		times++
+		GLogger.Infof("cur check tmchain to sleep,interval is :%d\n", config.Conf.TMClusterMonitor.ClusterInterval)
+		time.Sleep(time.Duration(config.Conf.TMClusterMonitor.ClusterInterval))
 	}
 
 	//}()
-
-}
-
-func SendCompressBscRequest(url, fileTime string) {
-	autoIp := GetOutboundIP().String()
-
-	payload := strings.NewReader(fmt.Sprintf(`{"token":"%s","autoIp":"%s", "fileTime":"%s"}`, config.Conf.TMClusterMonitor.AccessToken, autoIp, fileTime))
-	log.Logger.Infof("send snaprecover for tm' request :%+v", payload)
-	post(url, payload)
 
 }
 

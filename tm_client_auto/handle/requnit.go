@@ -99,26 +99,17 @@ func ExecCmd(cmd *exec.Cmd) ExecResult {
 func sendTmSnapScriptCmd(optype, source, realsnaptimedir string) {
 	curPath := GetAppPath()
 	timeToday := time.Now().Format("20060102_1504")
-	//fileTime := timeToday
 	fileTime := realsnaptimedir
-	redirFile := fmt.Sprintf("%s//client_recoverrun%s.log", curPath, timeToday)
 	redirtmFile := fmt.Sprintf("%s//client_recoverruntm%s.log", curPath, timeToday)
-	log.Logger.Infof("In sendScriptCmd(),check redirFile is:%s", redirFile)
-	/*
-		cmdChaindatalocal := exec.Command("/bin/sh", "-c", fmt.Sprintf("tar -zcvf %s/fabric0926_%s.tar.gz /Users/gejians/go/src/2021New_BFLProjTotal/0424NewTMEnvRes/fabric0926 >> %s 2>&1", curPath, fileTime, redirFile))
-		ExecCmd(cmdChaindatalocal)
-		log.Logger.Infof("exec tar zcvf finished!...")
-	*/
-	//	cmdCheckSnapdata := exec.Command("/bin/sh", "-c", fmt.Sprintf("./bscnode_snapdata.sh %s %s %s> %s 2>&1", optype, source, fileTime, redirFile))
-	//0425testing,
+	log.Logger.Infof("In sendScriptCmd(),check redirFile is:%s", redirtmFile)
 	//./bscnode_snapdata_local.sh from 192.168.1.224 0525
 	fileTime = "0525"
 	trustConfigPath := fmt.Sprintf("%s//%s", curPath, "bscnode_snapdata_local.sh")
 	log.Logger.Infof("to exec snapdataCheck file is :%s", trustConfigPath)
-	//curTotalCmd := fmt.Sprintf("/Users/gejianspro/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/bscnode_snapdata_local.sh %s %s %s > %s 2>&1", "from", "192.168.1.224", "0525", redirFile)
-	curTotalCmd := fmt.Sprintf("%s %s %s %s > %s 2>&1", trustConfigPath, "from", "192.168.1.224", fileTime, redirFile)
+	curTotalCmd := fmt.Sprintf("%s %s %s %s > %s 2>&1", trustConfigPath, "from", "192.168.1.224", fileTime, redirtmFile)
 	curRealShellCmd := fmt.Sprintf("%s//%s %s %s > %s 2>&1", curPath, "tmnode_snapdata0419.sh", optype, realsnaptimedir, redirtmFile)
 	log.Logger.Infof("checking Online curRealShellCmd---> to exec tm cmd info is:%s", curRealShellCmd)
+
 	//log.Logger.Infof("checking Online info===>: to exec tmnode_snapdata0419.sh,req'optype is:%s, req' source is:%s, realsnaptimedir is:%s", optype, source, realsnaptimedir)
 	//0511:/home/dev-user/tmnode_snapdata0419.sh restoredata 20230428
 
@@ -177,7 +168,7 @@ func AddValidators(c *gin.Context) {
 		c.IndentedJSON(http.StatusBadRequest, gin.H{"msg": "async request AddValidators, StatusBadRequest!"})
 		return
 	}
-	log.Logger.Info("async request sync data success! to handle request=%v", ipdata)
+	log.Logger.Info("receive request addValidators success! to handle request=%v", ipdata)
 
 	c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync data success!"})
 

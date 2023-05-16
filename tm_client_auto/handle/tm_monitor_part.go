@@ -6,7 +6,6 @@ import (
 	"io"
 	"net/http"
 	"strings"
-	"time"
 )
 
 // 节点块高
@@ -90,28 +89,4 @@ func sendMsg(url, nodeType, content string) (getret string, err error) {
 			fmt.Println("钉钉调用错误: %v", dingRet)
 		}
 	*/
-}
-func get(url string) ([]byte, error) {
-	// url := "http://106.3.133.179:46657/tri_block_info?height=104360"
-
-	client := &http.Client{}
-	client.Timeout = time.Second * 60
-	req, err := http.NewRequest("GET", url, nil)
-
-	if err != nil {
-		fmt.Println("%s", err)
-		return nil, err
-	}
-	res, err := client.Do(req)
-	if err != nil {
-		fmt.Println("%s", err)
-		return nil, err
-	}
-	defer res.Body.Close()
-
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, err
-	}
-	return body, nil
 }

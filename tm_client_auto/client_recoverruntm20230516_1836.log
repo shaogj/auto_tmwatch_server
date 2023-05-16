@@ -1,0 +1,29 @@
+/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh: line 12: /data/node/geth: No such file or directory
+to exec scp to get bsc snapdata from IP node: 192.168.1.224
+cur scpsnaptime is: 202305161836
+get invoke request' params num is :3
+get DESC_SNAP_DIR' request params num is :0525
+to exec GetSnapDataFromRemoteNode(),to scp bsc snapdate from node，IP is:
+192.168.1.224
+to scp from desc ip dir is:0525
+0525
+get curBscSnapTime value is: 202305161836
+cur work dir curBscSnapTime value is: 202305161836,start scp datafrom remote ip!
+Warning: Identity file /root/bscWatchTest/Key_dev-user_rsa-Local-0422 not accessible: No such file or directory.
+scp: /data/node/geth/triecache_0525.tar.gz: No such file or directory
+cur work dir:202305161836,get snapdata from:192.168.1.224 finished!
+step2,cur exec RecoverDataFromSnap proc.RecoverDataFromSnap is: 202305161836
+cur time is:20230516183654,get snapdata from:192.168.1.224,finished,to replace data to local bsc gethdata!
+/Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023
+mv: rename /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/chaindata to /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/chaindata_baklast_202305161836: No such file or directory
+mv: rename /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/triecache to /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/triecache_baklast_202305161836: No such file or directory
+get copy RecoverData,FromSnap dir: 202305161836
+cp: /Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023: No such file or directory
+cp: ./triecache_0525.tar.gz: No such file or directory
+get RecoverDataFromSnap finished!
+tar: Error opening archive: Failed to open '/Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/chaindata_0525.tar.gz'
+tar: Error opening archive: Failed to open '/Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023/triecache_0525.tar.gz'
+get tar file to datadir finished!
+to exec docker restart trust_zkbsc,curtime is: 202305161836
+Cannot connect to the Docker daemon at tcp://127.0.0.1:4243. Is the docker daemon running?
+after exec docker restart trust_zkbsc,curtime is: curBscSnapTimeafter

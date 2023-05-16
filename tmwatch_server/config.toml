@@ -33,8 +33,8 @@
 [tm-monitor]
 
   # 钉钉机器人接口
-  ding-url = "https://oapi.dingtalk.com/robot/send?access_token=cf2758d4b768f7aa352a919c72f88e9e9fd695168147f851c38c7a78d92cbd69"
-
+  ding-url = "https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef"
+  #,,msg group:cf2758d4b768f7aa352a919c72f88e9e9fd695168147f851c38c7a78d92cbd69
   # 钉钉安全设置,节点正常消息前缀
   ok-prefix-key = "tm节点恢复正常"
 
@@ -62,8 +62,8 @@
 # tm集群监视
 [tm-cluster-monitor]
 
-  # 查看集群状态时间间隔,默认10分钟
-  cluster-interval = 600
+  # 查看集群状态时间间隔,默认10分钟,-cluster-interval = 600,0516,cur 15S
+  cluster-interval = 15
 
   # bsc节点重启时间间隔,默认2分钟
   node-interval = 120
