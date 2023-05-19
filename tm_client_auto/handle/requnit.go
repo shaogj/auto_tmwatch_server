@@ -96,7 +96,7 @@ func ExecCmd(cmd *exec.Cmd) ExecResult {
 
 }
 
-func sendTmSnapScriptCmd(optype, source, realsnaptimedir string) {
+func sendTmSnapScriptCmd(optype, source, realsnaptimedir string) error {
 	curPath := GetAppPath()
 	timeToday := time.Now().Format("20060102_1504")
 	fileTime := realsnaptimedir
@@ -110,30 +110,27 @@ func sendTmSnapScriptCmd(optype, source, realsnaptimedir string) {
 	curRealShellCmd := fmt.Sprintf("%s//%s %s %s > %s 2>&1", curPath, "tmnode_snapdata0419.sh", optype, realsnaptimedir, redirtmFile)
 	log.Logger.Infof("checking Online curRealShellCmd---> to exec tm cmd info is:%s", curRealShellCmd)
 
-	//log.Logger.Infof("checking Online info===>: to exec tmnode_snapdata0419.sh,req'optype is:%s, req' source is:%s, realsnaptimedir is:%s", optype, source, realsnaptimedir)
 	//0511:/home/dev-user/tmnode_snapdata0419.sh restoredata 20230428
 
 	log.Logger.Infof("start exec bscnode_snapdata.sh!,cmd is :%v:", curTotalCmd)
 	pcmdres, err := RunCommand(curTotalCmd)
 	log.Logger.Infof("after EXecCmd,get execResult info is :%v,err is:%v", pcmdres, err)
-
+	return err
 }
 
-//curl --location --request POST '127.0.0.1:6667/add_validators' \
-//    --header 'Content-Type: application/json' \
-//    --data-raw '{"auto_ip":2,"optype":"restoredata","snap_data_time":"20230507","token":"4444"}'
-
+/*
+curl --location --request POST '127.0.0.1:6667/sync_tm_snapdata' \
+--header 'Content-Type: application/json' \
+--data-raw '{"auto_ip":"192,135","optype":"restoredata","snap_data_time":"20230513","token":"4444"}'
+*/
 func SyncTmSnapData(c *gin.Context) {
 	var syncDataRequest RecoverSnapDataRequest
-
-	//log.Logger.Info("start SyncTmSnapData-----:", c.Request)
 	if err := c.BindJSON(&syncDataRequest); err != nil {
 		log.Logger.Errorf("fun=SyncTmSnapData() requeset's Params Token is invalid! res err info=%v", err)
 		return
 	}
 
 	log.Logger.Infof("fun=SyncTmSnapData()--receive sync tm snapdata request %+v", syncDataRequest)
-	//log.Logger.Infof("fun=SyncTmSnapData()--receive sync tm snapdata request:Token is %+v", syncDataRequest.Token)
 
 	if syncDataRequest.Token != config.Conf.Service.AccessToken { //"4444"  //viper.GetString("token") {
 		log.Logger.Errorf("fun=SyncTmSnapData() requeset's Params Token is invalid! req Token=%v,cfg's AccessToken is;%s ", syncDataRequest.Token, config.Conf.Service.AccessToken)
@@ -145,13 +142,15 @@ func SyncTmSnapData(c *gin.Context) {
 		c.IndentedJSON(http.StatusBadRequest, gin.H{"msg": "invalid params :Optype"})
 		return
 	}
-	/**/
-	log.Logger.Info("async request sync data success! to handle request=%v", syncDataRequest)
-	sendTmSnapScriptCmd(syncDataRequest.Optype, "localhost", syncDataRequest.SnapDataTime)
 
-	// res := SyncData(syncDataRequest.Source)
-	// c.IndentedJSON(http.StatusOK, res)
-	//go SyncData(syncDataRequest.Optype, syncDataRequest.Source, syncDataRequest.FileTime)
+	log.Logger.Info("async request sync data success! to handle request=%v", syncDataRequest)
+	//0518add,note,//go SyncData?
+	err := sendTmSnapScriptCmd(syncDataRequest.Optype, "localhost", syncDataRequest.SnapDataTime)
+	if err != nil {
+		log.Logger.Errorf("sync request sync data sendTmSnapScriptCmd() failed! cur handle request=%v", syncDataRequest)
+		c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync tm data failed!", "request resp err": err})
+	}
+	log.Logger.Info("cur handle request sync data sendTmSnapScriptCmd() finished! cur handle syncDataRequest.SnapDataTime=%v", syncDataRequest.SnapDataTime)
 	c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync tm data success!"})
 }
 func AddValidators(c *gin.Context) {

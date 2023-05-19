@@ -26,10 +26,35 @@ type CompressRequest struct {
 	AutoIp   string `json:"autoIp"`
 }
 
+func getSnapDataTime() (datatimestr string) {
+	var getdatatimestr string
+	t := time.Now()
+	addTime := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+	timestr := addTime.Format("2006-01-02")
+	addTime2hour := time.Date(t.Year(), t.Month(), t.Day(), 2, 0, 0, 0, t.Location())
+	fmt.Println("today 2hour is:%s,timestemp is:%d ", timestr, addTime2hour.Unix()) //2022-04-15
+	tyesday := time.Now().AddDate(0, 0, -1)
+	addTimeyesday2hour := time.Date(tyesday.Year(), tyesday.Month(), tyesday.Day(), 2, 0, 0, 0, t.Location())
+	timeyesdaystr := addTimeyesday2hour.Format("2006-01-02")
+	fmt.Println("yestorday 2hour is:%s,timestemp is:%d ", timeyesdaystr, addTimeyesday2hour.Unix()) //2022-04-15
+	curtime := time.Now().Unix()
+	if curtime > addTime2hour.Unix() {
+		getdatatimestr = addTime.Format("20060102")
+	} else {
+		addTimeyesday0hour := time.Date(tyesday.Year(), tyesday.Month(), tyesday.Day(), 0, 0, 0, 0, t.Location())
+		getdatatimestr = addTimeyesday0hour.Format("20060102")
+	}
+	return getdatatimestr
+}
 func main() {
-	curFormtTime := time.Now().Format("2006.01.02_15_04")
-	fmt.Printf("cur curFormtTime is:%s\n", curFormtTime)
+	curFormatDayTime := time.Now().Format("2006.01.02_15_04")
+	curFormatTime := time.Now().Format("2006.01.02_15_04")
+	fmt.Printf("cur curFormatDayTime is:%s,curFormatTime is:%s\n", curFormatDayTime, curFormatTime)
+	getdatatimestr := getSnapDataTime()
+	fmt.Printf("cur nowtime is is::%d,getSnapDataTime() is:%s\n", time.Now().Unix(), getdatatimestr)
 
+	return
+	//0519testing
 	//sendScriptCmd()
 	config.LoadConf()
 	log.LogInit(config.Conf.Service.LogLevel, config.Conf.Service.LogPath)

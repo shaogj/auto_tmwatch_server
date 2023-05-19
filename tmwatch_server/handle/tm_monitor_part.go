@@ -180,7 +180,7 @@ func GetMaxH(tms ClusterHStatus) int64 {
 func GetBjIps(nodeType string) []string {
 	return []string{"106.3.133.178", "106.3.133.179", "106.3.133.180", "210.73.218.171", "210.73.218.172"}
 }
-func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, error) {
+func GetTMClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, error) {
 	var cluster ClusterHStatus
 
 	//0512doing,bjenv
@@ -218,7 +218,6 @@ func GetClusterHStatus(nodeType string, tmnodelist []string) (ClusterHStatus, er
 		if result.Err != nil {
 			GLogger.Errorf("cur req tm node rpc is error! cur node Ip is :%v,height is:%d，to restart the node!", result.H.Ip, result.H.Height)
 		}
-
 		cluster.Nodes = append(cluster.Nodes, result.H)
 
 	}
@@ -248,25 +247,22 @@ func StartClusterStatusProc() {
 	for _, host := range config.Conf.TM {
 		tmnodelist = append(tmnodelist, host.Ip)
 	}
-	GLogger.Infof("cur GetClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
+	GLogger.Infof("cur GetTMClusterHStatus(), get tm's IPlist: %v\n", tmnodelist)
 	//return
 	//0516,to up {
 	for times < retry {
-		tms, err := GetClusterHStatus("tm", tmnodelist)
-		GLogger.Infof("after check all tm's IPlist,by GetClusterHStatus() getinfo: %v,err is:%v \n", tms, err)
-		//0504checking
+		tms, err := GetTMClusterHStatus("tm", tmnodelist)
+		GLogger.Infof("after check all tm's IPlist,by GetTMClusterHStatus() getinfo: %v,err is:%v \n", tms, err)
 		//time.Sleep(time.Duration(7) * time.Second)
 		newMaxHeight = GetMaxH(tms)
 		if newMaxHeight > lastMaxHeight {
-			//fmt.Printf
-			GLogger.Infof("after GetClusterHStatus(), check tmchain height is increase! get newMaxHeight is :%d,lastMaxHeight is:%d,\n", newMaxHeight, lastMaxHeight)
+			GLogger.Infof("after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :%d,lastMaxHeight is:%d,\n", newMaxHeight, lastMaxHeight)
 			lastMaxHeight = newMaxHeight
 		} else {
 			errtimes++
-			GLogger.Errorf("after GetClusterHStatus() ,check tmchain height is increase no ! errtimes is :%d,get newMaxHeight is :%d,lastMaxHeight is:%d,\n", errtimes, newMaxHeight, lastMaxHeight)
+			GLogger.Errorf("after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :%d,get newMaxHeight is :%d,lastMaxHeight is:%d,\n", errtimes, newMaxHeight, lastMaxHeight)
 			//0512add,0515doing
 			if errtimes >= 2 {
-				//0515add
 				errPrefix := config.Conf.TmMonitor.ErrPrefixKey
 				dingurl := config.Conf.TmMonitor.DingUrl
 				//okPrefix := config/Conf.TmMonitor.OkPrefixKey
@@ -277,18 +273,19 @@ func StartClusterStatusProc() {
 
 				//POST '127.0.0.1:6667/sync_tm_snapdata'
 				url := "http://127.0.0.1:6667/sync_tm_snapdata"
-				fileTime := "0514datanoon_torealsnapdata"
+				//fileTime := "0514datanoon_torealsnapdata"
 				GLogger.Infof("cur check tmchain is increase no errtimes is :%d,newMaxHeight is :%d,to invoke SendCompressBscRequest()\n", errtimes, newMaxHeight)
-				//SendCompressBscRequest(url, fileTime)
-				SendTmSnapRecoverRequest(url, fileTime)
+				//0519,add
+				getdatatimestr := GetSnapDataTime()
+				GLogger.Infof("cur nowtime is is::%d,getSnapDataTime() is:%s\n", time.Now().Unix(), getdatatimestr)
+
+				SendTmSnapRecoverRequest(url, getdatatimestr)
 			}
 		}
 		times++
 		GLogger.Infof("cur check tmchain to sleep,interval is :%d\n", config.Conf.TMClusterMonitor.ClusterInterval)
 		time.Sleep(time.Duration(config.Conf.TMClusterMonitor.ClusterInterval))
 	}
-
-	//}()
 
 }
 

@@ -63,7 +63,7 @@
 [tm-cluster-monitor]
 
   # 查看集群状态时间间隔,默认10分钟,-cluster-interval = 600,0516,cur 15S
-  cluster-interval = 15
+  cluster-interval = 7
 
   # bsc节点重启时间间隔,默认2分钟
   node-interval = 120
