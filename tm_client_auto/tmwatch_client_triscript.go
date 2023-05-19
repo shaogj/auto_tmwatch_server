@@ -47,19 +47,13 @@ func getSnapDataTime() (datatimestr string) {
 	return getdatatimestr
 }
 func main() {
-	curFormatDayTime := time.Now().Format("2006.01.02_15_04")
-	curFormatTime := time.Now().Format("2006.01.02_15_04")
-	fmt.Printf("cur curFormatDayTime is:%s,curFormatTime is:%s\n", curFormatDayTime, curFormatTime)
 	getdatatimestr := getSnapDataTime()
 	fmt.Printf("cur nowtime is is::%d,getSnapDataTime() is:%s\n", time.Now().Unix(), getdatatimestr)
-
-	return
-	//0519testing
-	//sendScriptCmd()
+	//return
 	config.LoadConf()
 	log.LogInit(config.Conf.Service.LogLevel, config.Conf.Service.LogPath)
 
-	log.Logger.Infof("tm watch server--start!")
+	log.Logger.Infof("tm watch client--start!")
 	log.Logger.Infof("get config.toml of client info ===>:%v:", config.Conf.Service)
 
 	gin.SetMode(gin.ReleaseMode)

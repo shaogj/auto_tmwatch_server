@@ -289,11 +289,27 @@ func StartClusterStatusProc() {
 
 }
 
-func SendTmSnapRecoverRequest(url, fileTime string) {
+type snaprecoverres struct {
+	Msg string `json:"msg"`
+}
+
+func SendTmSnapRecoverRequest(url, fileTime string) error {
 	autoIp := GetOutboundIP().String()
 	//{"auto_ip":"192,135","optype":"restoredata","snap_data_time":"20230513","token":"4444"}
 	payload := strings.NewReader(fmt.Sprintf(`{"auto_ip":"%s","optype":"%s","snap_data_time":"%s", "token":"%s"}`, autoIp, "restoredata", fileTime, config.Conf.TMClusterMonitor.AccessToken))
 	log.Logger.Infof("send tmnode snaprecover for tm' request :%+v", payload)
-	post(url, payload)
+	//post(url, payload)
+	//0519add
+	var cursnaprecoverres snaprecoverres
+	b, err := post(url, payload)
+	if err != nil {
+		return err
+	}
+	err = json.Unmarshal(b, &cursnaprecoverres)
+	if err != nil {
+		return err
+	}
+	log.Logger.Infof("send tmnode snaprecover for tm' response is cursnaprecoverres :%+v", cursnaprecoverres)
 
+	return nil
 }

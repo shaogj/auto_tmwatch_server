@@ -45,6 +45,9 @@ function RecoverNormalDataFromSnap() {
   	  afterSnapData="cur time is:$(date "+%Y%m%d%H%M%S"),get snapdata from:${DESC_IP},finished,to replace data to local bsc gethdata!"
       echo $afterSnapData
       #std--
+      #0519doing：
+      echo "step2,,to sleep 120s"
+      sleep 120
       bsc_gethdata="/data/node/geth"
       #0425testing
       bsc_gethdata="/Users/gejianspro/go/src/202108FromBFLProj/ChainWatch_Project2023"
@@ -85,7 +88,8 @@ function GetSnapDataFromRemoteNode() {
   #real data tardata
   #0425doing
   scp -r root@${DESC_IP}:/data/node/geth/chaindata_${DESC_SNAP_DIR}.tar.gz ./
-  scp -i /root/bscWatchTest/Key_dev-user_rsa-Local-0422 -r root@${DESC_IP}:/data/node/geth/triecache_${DESC_SNAP_DIR}.tar.gz ./
+  #0519,my mac replace local env:/root/bscWatchTest/Key_dev-user_rsa-Local-0422
+  scp -i /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/Key_dev-user_rsa-Local-0422 -r root@${DESC_IP}:/data/node/geth/triecache_${DESC_SNAP_DIR}.tar.gz ./
    #180node,testdata
   #scp -i /home/dev-user/BJdev-user_rsa-0628 -r dev-user@${DESC_IP}:/data/node/geth/nodes ./
   #scp -i /home/dev-user/BJdev-user_rsa-0628 -r dev-user@${DESC_IP}:/data/node/geth/check_snapcp04 ./

@@ -33,3 +33,5 @@
 
   # 用于触发tmclient请求的access token
   access-token = "3333"
+  # 调用执行的tm脚本文件名
+  invoke-script-name = "tmnode_snapdata0419KK.sh"

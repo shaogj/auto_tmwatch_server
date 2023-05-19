@@ -263,3 +263,68 @@
 2023-05-19 15:54:28	INFO	handle/requnit.go:111	checking Online curRealShellCmd---> to exec tm cmd info is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//tmnode_snapdata0419.sh restoredata 20230519 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1554.log 2>&1
 2023-05-19 15:54:28	INFO	handle/requnit.go:116	start exec bscnode_snapdata.sh!,cmd is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh from 192.168.1.224 0525 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1554.log 2>&1:
 2023-05-19 15:54:41	INFO	handle/requnit.go:118	after EXecCmd,get execResult info is :,err is:<nil>
+2023-05-19 16:52:40	INFO	handle/requnit.go:135	fun=SyncTmSnapData()--receive sync tm snapdata request {AccessToken:{Token:3333} AutoIp:10.182.1.41 Optype:restoredata SnapDataTime:20230519}
+2023-05-19 16:52:40	INFO	handle/requnit.go:149	async request sync data success! to handle request=%v{{3333} 10.182.1.41 restoredata 20230519}
+2023-05-19 16:52:40	INFO	handle/requnit.go:104	In sendScriptCmd(),check redirFile is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1652.log
+2023-05-19 16:52:40	INFO	handle/requnit.go:108	to exec snapdataCheck file is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh
+2023-05-19 16:52:40	INFO	handle/requnit.go:111	checking Online curRealShellCmd---> to exec tm cmd info is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//tmnode_snapdata0419.sh restoredata 20230519 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1652.log 2>&1
+2023-05-19 16:52:40	INFO	handle/requnit.go:116	start exec bscnode_snapdata.sh!,cmd is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh from 192.168.1.224 0525 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1652.log 2>&1:
+2023-05-19 16:52:42	INFO	handle/requnit.go:118	after EXecCmd,get execResult info is :,err is:<nil>
+2023-05-19 16:54:30	INFO	tm_client_auto/tmwatch_client_triscript.go:56	tm watch server--start!
+2023-05-19 16:54:30	INFO	tm_client_auto/tmwatch_client_triscript.go:57	get config.toml of client info ===>:{6667 info ./tmwatch_client.log 3333}:
+2023-05-19 16:54:30	FATAL	logs/log.go:121	listen: listen tcp :6667: bind: address already in use
+
+2023-05-19 17:01:00	INFO	tm_client_auto/tmwatch_client_triscript.go:56	tm watch server--start!
+2023-05-19 17:01:00	INFO	tm_client_auto/tmwatch_client_triscript.go:57	get config.toml of client info ===>:{6667 info ./tmwatch_client.log 3333}:
+2023-05-19 17:01:55	INFO	handle/requnit.go:133	fun=SyncTmSnapData()--receive sync tm snapdata request {AccessToken:{Token:3333} AutoIp:10.182.1.41 Optype:restoredata SnapDataTime:20230519}
+2023-05-19 17:01:55	INFO	handle/requnit.go:146	async request sync data success! to handle request=%v{{3333} 10.182.1.41 restoredata 20230519}
+2023-05-19 17:01:55	INFO	handle/requnit.go:104	In sendScriptCmd(),check redirFile is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1701.log
+2023-05-19 17:01:55	INFO	handle/requnit.go:108	to exec snapdataCheck file is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh
+2023-05-19 17:01:55	INFO	handle/requnit.go:111	checking Online curRealShellCmd---> to exec tm cmd info is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//tmnode_snapdata0419.sh restoredata 20230519 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1701.log 2>&1
+2023-05-19 17:01:55	INFO	handle/requnit.go:115	start exec bscnode_snapdata.sh!,cmd is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh from 192.168.1.224 0525 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1701.log 2>&1:
+2023-05-19 17:01:57	INFO	handle/requnit.go:117	after EXecCmd,get execResult info is :,err is:<nil>
+2023-05-19 17:01:57	INFO	handle/requnit.go:153	cur handle request sync data sendTmSnapScriptCmd() finished! cur handle syncDataRequest.SnapDataTime=%v20230519
+2023-05-19 17:11:50	INFO	tm_client_auto/tmwatch_client_triscript.go:83	Shutdown Server ...
+2023-05-19 17:11:54	INFO	tm_client_auto/tmwatch_client_triscript.go:56	tm watch server--start!
+2023-05-19 17:11:54	INFO	tm_client_auto/tmwatch_client_triscript.go:57	get config.toml of client info ===>:{6667 info ./tmwatch_client.log 3333}:
+2023-05-19 17:12:35	INFO	handle/requnit.go:133	fun=SyncTmSnapData()--receive sync tm snapdata request {AccessToken:{Token:3333} AutoIp:10.182.1.41 Optype:restoredata SnapDataTime:20230519}
+2023-05-19 17:12:35	INFO	handle/requnit.go:146	async request sync data success! to handle request=%v{{3333} 10.182.1.41 restoredata 20230519}
+2023-05-19 17:12:35	INFO	handle/requnit.go:104	In sendScriptCmd(),check redirFile is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1712.log
+2023-05-19 17:12:35	INFO	handle/requnit.go:108	to exec snapdataCheck file is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh
+2023-05-19 17:12:35	INFO	handle/requnit.go:111	checking Online curRealShellCmd---> to exec tm cmd info is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//tmnode_snapdata0419.sh restoredata 20230519 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1712.log 2>&1
+2023-05-19 17:12:35	INFO	handle/requnit.go:115	start exec bscnode_snapdata.sh!,cmd is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh from 192.168.1.224 0525 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//client_recoverruntm20230519_1712.log 2>&1:
+2023-05-19 17:14:37	INFO	handle/requnit.go:117	after EXecCmd,get execResult info is :,err is:<nil>
+2023-05-19 17:14:37	INFO	handle/requnit.go:153	cur handle request sync data sendTmSnapScriptCmd() finished! cur handle syncDataRequest.SnapDataTime=%s20230519
+2023-05-19 17:40:09	INFO	tm_client_auto/tmwatch_client_triscript.go:83	Shutdown Server ...
+2023-05-19 17:51:24	INFO	tm_client_auto/tmwatch_client_triscript.go:56	tm watch server--start!
+2023-05-19 17:51:24	INFO	tm_client_auto/tmwatch_client_triscript.go:57	get config.toml of client info ===>:{6667 info ./tmwatch_client.log 3333 tmnode_snapdata0419.sh}:
+2023-05-19 17:52:25	INFO	handle/requnit.go:151	fun=SyncTmSnapData()--receive sync tm snapdata request {AccessToken:{Token:3333} AutoIp:10.182.1.41 Optype:restoredata SnapDataTime:20230519}
+2023-05-19 17:52:25	INFO	handle/requnit.go:167	async request sync data success! exec invokeScriptName is:%s,to handle request=%vtmnode_snapdata0419.sh{{3333} 10.182.1.41 restoredata 20230519}
+2023-05-19 17:52:25	INFO	handle/requnit.go:102	File exist
+2023-05-19 17:52:25	INFO	handle/requnit.go:175	cur async handle sync data sendTmSnapScriptCmd() return. syncDataRequest.SnapDataTime=%s20230519
+2023-05-19 17:52:25	INFO	handle/requnit.go:117	In sendScriptCmd(),check redirFile is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/client_recoverruntm20230519_1752.log
+2023-05-19 17:52:25	INFO	handle/requnit.go:121	to exec snapdataCheck file is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh
+2023-05-19 17:52:25	INFO	handle/requnit.go:126	checking Online curRealShellCmd---> to exec tm cmd info is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//tmnode_snapdata0419.sh restoredata 20230519 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/client_recoverruntm20230519_1752.log 2>&1
+2023-05-19 17:52:25	INFO	handle/requnit.go:130	start exec bscnode_snapdata.sh!,cmd is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto//bscnode_snapdata_local.sh from 192.168.1.224 0525 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/client_recoverruntm20230519_1752.log 2>&1:
+2023-05-19 17:54:27	INFO	handle/requnit.go:135	after execcmd,get execResult info is :,err is:<nil>
+2023-05-19 17:57:32	INFO	tm_client_auto/tmwatch_client_triscript.go:83	Shutdown Server ...
+2023-05-19 17:57:37	INFO	tm_client_auto/tmwatch_client_triscript.go:56	tm watch client--start!
+2023-05-19 17:57:37	INFO	tm_client_auto/tmwatch_client_triscript.go:57	get config.toml of client info ===>:{6667 info ./tmwatch_client.log 3333 tmnode_snapdata0419KK.sh}:
+2023-05-19 17:58:11	INFO	handle/requnit.go:151	fun=SyncTmSnapData()--receive sync tm snapdata request {AccessToken:{Token:3333} AutoIp:10.182.1.41 Optype:restoredata SnapDataTime:20230519}
+2023-05-19 17:58:11	INFO	handle/requnit.go:167	async request sync data success! exec invokeScriptName is:tmnode_snapdata0419KK.sh,to handle request={{3333} 10.182.1.41 restoredata 20230519}
+2023-05-19 17:58:11	ERROR	handle/requnit.go:106	File not exist
+2023-05-19 17:58:11	ERROR	handle/requnit.go:170	cur async handle invokeScriptName is exist no,to check configfile!,invokeScriptName is:tmnode_snapdata0419KK.sh
+2023-05-19 17:58:11	INFO	handle/requnit.go:175	cur async handle sync data sendTmSnapScriptCmd() return. syncDataRequest.SnapDataTime=%s20230519
+2023-05-19 17:58:11	INFO	handle/requnit.go:117	In sendScriptCmd(),check redirFile is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/client_recoverruntm20230519_1758.log
+2023-05-19 17:58:11	INFO	handle/requnit.go:121	to exec snapdataCheck file is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/bscnode_snapdata_local.sh
+2023-05-19 17:58:11	INFO	handle/requnit.go:126	checking Online curRealShellCmd---> to exec tm cmd info is:/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/tmnode_snapdata0419KK.sh restoredata 20230519 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/client_recoverruntm20230519_1758.log 2>&1
+2023-05-19 17:58:11	INFO	handle/requnit.go:130	start exec bscnode_snapdata.sh!,cmd is :/Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/bscnode_snapdata_local.sh from 192.168.1.224 0525 > /Users/gejians/go/src/202108FromBFLProj/auto_tmwatch_server/tm_client_auto/client_recoverruntm20230519_1758.log 2>&1:
+2023-05-19 18:00:13	INFO	handle/requnit.go:135	after execcmd,get execResult info is :,err is:<nil>
+2023-05-19 18:10:10	INFO	tm_client_auto/tmwatch_client_triscript.go:83	Shutdown Server ...
+2023-05-19 18:10:14	INFO	tm_client_auto/tmwatch_client_triscript.go:56	tm watch client--start!
+2023-05-19 18:10:14	INFO	tm_client_auto/tmwatch_client_triscript.go:57	get config.toml of client info ===>:{6667 info ./tmwatch_client.log 3333 tmnode_snapdata0419KK.sh}:
+2023-05-19 18:11:01	INFO	handle/requnit.go:151	fun=SyncTmSnapData()--receive sync tm snapdata request {AccessToken:{Token:3333} AutoIp:10.182.1.41 Optype:restoredata SnapDataTime:20230519}
+2023-05-19 18:11:01	INFO	handle/requnit.go:167	async request sync data success! exec invokeScriptName is:tmnode_snapdata0419KK.sh,to handle request={{3333} 10.182.1.41 restoredata 20230519}
+2023-05-19 18:11:01	ERROR	handle/requnit.go:106	File not exist
+2023-05-19 18:11:01	ERROR	handle/requnit.go:170	cur async handle invokeScriptName is exist no,to check configfile!,invokeScriptName is:tmnode_snapdata0419KK.sh
+2023-05-19 18:11:35	INFO	tm_client_auto/tmwatch_client_triscript.go:83	Shutdown Server ...

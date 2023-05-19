@@ -96,25 +96,43 @@ func ExecCmd(cmd *exec.Cmd) ExecResult {
 
 }
 
-func sendTmSnapScriptCmd(optype, source, realsnaptimedir string) error {
+func isFileExist(fileName string) bool {
+	_, err := os.Stat(fileName)
+	if err == nil {
+		log.Logger.Infof("File exist")
+		return true
+	}
+	if os.IsNotExist(err) {
+		log.Logger.Errorf("File not exist")
+		return false
+	}
+	return true
+}
+func sendTmSnapScriptCmd(invokeScriptName, optype, realsnaptimedir string) error {
 	curPath := GetAppPath()
 	timeToday := time.Now().Format("20060102_1504")
 	fileTime := realsnaptimedir
-	redirtmFile := fmt.Sprintf("%s//client_recoverruntm%s.log", curPath, timeToday)
+
+	redirtmFile := fmt.Sprintf("%s/client_recoverruntm%s.log", curPath, timeToday)
 	log.Logger.Infof("In sendScriptCmd(),check redirFile is:%s", redirtmFile)
 	//./bscnode_snapdata_local.sh from 192.168.1.224 0525
 	fileTime = "0525"
-	trustConfigPath := fmt.Sprintf("%s//%s", curPath, "bscnode_snapdata_local.sh")
+	trustConfigPath := fmt.Sprintf("%s/%s", curPath, "bscnode_snapdata_local.sh")
 	log.Logger.Infof("to exec snapdataCheck file is :%s", trustConfigPath)
 	curTotalCmd := fmt.Sprintf("%s %s %s %s > %s 2>&1", trustConfigPath, "from", "192.168.1.224", fileTime, redirtmFile)
-	curRealShellCmd := fmt.Sprintf("%s//%s %s %s > %s 2>&1", curPath, "tmnode_snapdata0419.sh", optype, realsnaptimedir, redirtmFile)
+	//tmnode_snapdata0419.sh
+	tmnode_snapdatash := invokeScriptName
+	curRealShellCmd := fmt.Sprintf("%s/%s %s %s > %s 2>&1", curPath, tmnode_snapdatash, optype, realsnaptimedir, redirtmFile)
 	log.Logger.Infof("checking Online curRealShellCmd---> to exec tm cmd info is:%s", curRealShellCmd)
 
 	//0511:/home/dev-user/tmnode_snapdata0419.sh restoredata 20230428
 
 	log.Logger.Infof("start exec bscnode_snapdata.sh!,cmd is :%v:", curTotalCmd)
 	pcmdres, err := RunCommand(curTotalCmd)
-	log.Logger.Infof("after EXecCmd,get execResult info is :%v,err is:%v", pcmdres, err)
+	if err != nil {
+		log.Logger.Errorf("after execcmd,get execResult failed! cur request'realsnaptimedir is:%s", realsnaptimedir)
+	}
+	log.Logger.Infof("after execcmd,get execResult info is :%v,err is:%v", pcmdres, err)
 	return err
 }
 
@@ -142,15 +160,21 @@ func SyncTmSnapData(c *gin.Context) {
 		c.IndentedJSON(http.StatusBadRequest, gin.H{"msg": "invalid params :Optype"})
 		return
 	}
-
-	log.Logger.Info("async request sync data success! to handle request=%v", syncDataRequest)
-	//0518add,note,//go SyncData?
-	err := sendTmSnapScriptCmd(syncDataRequest.Optype, "localhost", syncDataRequest.SnapDataTime)
-	if err != nil {
-		log.Logger.Errorf("sync request sync data sendTmSnapScriptCmd() failed! cur handle request=%v", syncDataRequest)
-		c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync tm data failed!", "request resp err": err})
+	invokeScriptName := config.Conf.Service.InvokeScriptName
+	if invokeScriptName == "" {
+		invokeScriptName = "tmnode_snapdata.sh"
 	}
-	log.Logger.Info("cur handle request sync data sendTmSnapScriptCmd() finished! cur handle syncDataRequest.SnapDataTime=%v", syncDataRequest.SnapDataTime)
+	log.Logger.Infof("async request sync data success! exec invokeScriptName is:%s,to handle request=%s", invokeScriptName, syncDataRequest)
+	//0518add,note,//go SyncData?
+	if !isFileExist(invokeScriptName) {
+		log.Logger.Errorf("cur async handle invokeScriptName is exist no,to check configfile!,invokeScriptName is:%s", invokeScriptName)
+		c.IndentedJSON(http.StatusBadGateway, gin.H{"msg": "cur async handle invokeScriptName is exist no!"})
+		return
+	}
+	go sendTmSnapScriptCmd(invokeScriptName, syncDataRequest.Optype, syncDataRequest.SnapDataTime)
+
+	log.Logger.Info("cur async handle sync data sendTmSnapScriptCmd() return. syncDataRequest.SnapDataTime=%s", syncDataRequest.SnapDataTime)
+
 	c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync tm data success!"})
 }
 func AddValidators(c *gin.Context) {

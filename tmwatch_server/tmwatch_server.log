@@ -1094,3 +1094,628 @@
 2023-05-19 15:55:12	INFO	tmwatch_server/main.go:34	Shutdown Server ...
 2023-05-19 15:55:14	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
 2023-05-19 15:55:14	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
+2023-05-19 16:52:14	INFO	tmwatch_server/main.go:23	tm watch server--start!
+2023-05-19 16:52:14	INFO	tmwatch_server/main.go:24	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-19 16:52:14	INFO	tmwatch_server/main.go:25	get config.toml for server TMClusterMonitor info ===>:{7 120 8546 3333}:
+2023-05-19 16:52:14	INFO	tmwatch_server/main.go:26	get config.toml for TMClusterMonitor's TmMonitor is ===>:{https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef tm节点恢复正常 tm节点异常 5 5}:
+2023-05-19 16:52:14	INFO	tmwatch_server/main.go:27	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-19 16:52:14	INFO	handle/tm_monitor_part.go:250	cur GetTMClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 16:52:14	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 16:52:14	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 16:52:14	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 16:52:14	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 16:52:15	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 16:52:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 16:52:15	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 16:52:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 16:52:15	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 16:52:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 16:52:19	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 16:52:19	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 16:52:19	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 16:52:19	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4889 106.3.133.178} {4889 210.73.218.171} {4887 210.73.218.172} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:259	after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4889,lastMaxHeight is:0,
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 16:52:19	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 16:52:19	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 16:52:19	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {0 101.251.223.190} {4889 210.73.218.171} {4889 106.3.133.178} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :1,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 16:52:24	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 16:52:24	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 16:52:29	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 16:52:29	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 16:52:29	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 16:52:29	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 16:52:29	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 16:52:29	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 16:52:29	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4889 210.73.218.171} {0 101.251.223.190} {4887 210.73.218.172} {4889 106.3.133.178} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 16:52:29	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :2,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 16:52:40	INFO	handle/tm_monitor_part.go:272	cur check dingding GenErrMsg(), to send content info: {"msgtype":"text","text":{"alarm_level_info":"tmwatch_SnapRecover\u0026grade1","content":[{"Title":"tm节点异常","IP":"106.3.133.178","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.179","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.180","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.171","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.172","LocalHeight":4887,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"101.251.223.190","LocalHeight":0,"ClusterHeight":4889}]}}
+
+2023-05-19 16:52:40	INFO	handle/tm_monitor_part.go:277	cur check tmchain is increase no errtimes is :2,newMaxHeight is :4889,to invoke SendCompressBscRequest()
+
+2023-05-19 16:52:40	INFO	handle/tm_monitor_part.go:280	cur nowtime is is::1684486360,getSnapDataTime() is:20230519
+
+2023-05-19 16:52:40	INFO	handle/tm_monitor_part.go:296	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"10.182.1.41","optype":"restoredata","snap_data_time":"20230519", "token":"3333"} i:0 prevRune:-1}
+2023-05-19 16:52:42	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 16:58:01	INFO	tmwatch_server/main.go:34	Shutdown Server ...
+2023-05-19 16:58:03	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
+2023-05-19 16:58:03	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
+2023-05-19 17:01:30	INFO	tmwatch_server/main.go:23	tm watch server--start!
+2023-05-19 17:01:30	INFO	tmwatch_server/main.go:24	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-19 17:01:30	INFO	tmwatch_server/main.go:25	get config.toml for server TMClusterMonitor info ===>:{7 120 8546 3333}:
+2023-05-19 17:01:30	INFO	tmwatch_server/main.go:26	get config.toml for TMClusterMonitor's TmMonitor is ===>:{https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef tm节点恢复正常 tm节点异常 5 5}:
+2023-05-19 17:01:30	INFO	tmwatch_server/main.go:27	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:250	cur GetTMClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:01:30	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:01:30	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:01:30	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:01:35	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:01:35	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:01:35	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:01:35	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4887 210.73.218.172} {4889 210.73.218.171} {4889 106.3.133.178} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:259	after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4889,lastMaxHeight is:0,
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:01:35	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:01:35	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:01:35	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {4889 106.3.133.178} {4889 210.73.218.171} {0 101.251.223.190} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :1,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:01:40	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:01:40	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:01:45	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:01:45	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:01:45	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:01:45	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:01:45	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:01:45	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:01:45	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {0 101.251.223.190} {4889 106.3.133.178} {4889 210.73.218.171} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 17:01:45	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :2,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:01:55	INFO	handle/tm_monitor_part.go:272	cur check dingding GenErrMsg(), to send content info: {"msgtype":"text","text":{"alarm_level_info":"tmwatch_SnapRecover\u0026grade1","content":[{"Title":"tm节点异常","IP":"106.3.133.178","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.179","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.180","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.171","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.172","LocalHeight":4887,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"101.251.223.190","LocalHeight":0,"ClusterHeight":4889}]}}
+
+2023-05-19 17:01:55	INFO	handle/tm_monitor_part.go:277	cur check tmchain is increase no errtimes is :2,newMaxHeight is :4889,to invoke SendCompressBscRequest()
+
+2023-05-19 17:01:55	INFO	handle/tm_monitor_part.go:280	cur nowtime is is::1684486915,getSnapDataTime() is:20230519
+
+2023-05-19 17:01:55	INFO	handle/tm_monitor_part.go:296	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"10.182.1.41","optype":"restoredata","snap_data_time":"20230519", "token":"3333"} i:0 prevRune:-1}
+2023-05-19 17:01:57	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:02:56	INFO	tmwatch_server/main.go:34	Shutdown Server ...
+2023-05-19 17:02:58	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
+2023-05-19 17:02:58	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
+2023-05-19 17:12:10	INFO	tmwatch_server/main.go:23	tm watch server--start!
+2023-05-19 17:12:10	INFO	tmwatch_server/main.go:24	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-19 17:12:10	INFO	tmwatch_server/main.go:25	get config.toml for server TMClusterMonitor info ===>:{7 120 8546 3333}:
+2023-05-19 17:12:10	INFO	tmwatch_server/main.go:26	get config.toml for TMClusterMonitor's TmMonitor is ===>:{https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef tm节点恢复正常 tm节点异常 5 5}:
+2023-05-19 17:12:10	INFO	tmwatch_server/main.go:27	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:250	cur GetTMClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:12:10	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:12:10	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:12:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:12:15	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:12:15	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:12:15	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:12:15	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4889 106.3.133.178} {4887 210.73.218.172} {4889 210.73.218.171} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:259	after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4889,lastMaxHeight is:0,
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:12:15	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:12:15	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:12:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4889 210.73.218.171} {0 101.251.223.190} {4887 210.73.218.172} {4889 106.3.133.178} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :1,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:12:20	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:12:20	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:12:25	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:12:25	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:12:25	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:12:25	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:12:25	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:12:25	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:12:25	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4887 210.73.218.172} {4889 106.3.133.178} {4889 210.73.218.171} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 17:12:25	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :2,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:12:35	INFO	handle/tm_monitor_part.go:272	cur check dingding GenErrMsg(), to send content info: {"msgtype":"text","text":{"alarm_level_info":"tmwatch_SnapRecover\u0026grade1","content":[{"Title":"tm节点异常","IP":"106.3.133.178","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.179","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.180","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.171","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.172","LocalHeight":4887,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"101.251.223.190","LocalHeight":0,"ClusterHeight":4889}]}}
+
+2023-05-19 17:12:35	INFO	handle/tm_monitor_part.go:277	cur check tmchain is increase no errtimes is :2,newMaxHeight is :4889,to invoke SendCompressBscRequest()
+
+2023-05-19 17:12:35	INFO	handle/tm_monitor_part.go:280	cur nowtime is is::1684487555,getSnapDataTime() is:20230519
+
+2023-05-19 17:12:35	INFO	handle/tm_monitor_part.go:296	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"10.182.1.41","optype":"restoredata","snap_data_time":"20230519", "token":"3333"} i:0 prevRune:-1}
+2023-05-19 17:14:37	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:51:33	INFO	tmwatch_server/main.go:34	Shutdown Server ...
+2023-05-19 17:51:35	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
+2023-05-19 17:51:35	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
+2023-05-19 17:52:00	INFO	tmwatch_server/main.go:23	tm watch server--start!
+2023-05-19 17:52:00	INFO	tmwatch_server/main.go:24	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-19 17:52:00	INFO	tmwatch_server/main.go:25	get config.toml for server TMClusterMonitor info ===>:{7 120 8546 3333}:
+2023-05-19 17:52:00	INFO	tmwatch_server/main.go:26	get config.toml for TMClusterMonitor's TmMonitor is ===>:{https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef tm节点恢复正常 tm节点异常 5 5}:
+2023-05-19 17:52:00	INFO	tmwatch_server/main.go:27	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:250	cur GetTMClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:52:00	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:52:00	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:52:00	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:52:05	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:52:05	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:52:05	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:52:05	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4887 210.73.218.172} {4889 210.73.218.171} {4889 106.3.133.178} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:259	after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4889,lastMaxHeight is:0,
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:52:05	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:52:05	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:52:05	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4889 210.73.218.171} {4889 106.3.133.178} {4887 210.73.218.172} {0 101.251.223.190} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :1,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:52:10	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:52:10	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:52:15	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:52:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:52:15	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:52:15	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:52:15	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:52:15	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:52:15	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {4889 210.73.218.171} {4889 106.3.133.178} {0 101.251.223.190} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 17:52:15	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :2,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:52:25	INFO	handle/tm_monitor_part.go:272	cur check dingding GenErrMsg(), to send content info: {"msgtype":"text","text":{"alarm_level_info":"tmwatch_SnapRecover\u0026grade1","content":[{"Title":"tm节点异常","IP":"106.3.133.178","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.179","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.180","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.171","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.172","LocalHeight":4887,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"101.251.223.190","LocalHeight":0,"ClusterHeight":4889}]}}
+
+2023-05-19 17:52:25	INFO	handle/tm_monitor_part.go:277	cur check tmchain is increase no errtimes is :2,newMaxHeight is :4889,to invoke SendCompressBscRequest()
+
+2023-05-19 17:52:25	INFO	handle/tm_monitor_part.go:280	cur nowtime is is::1684489945,getSnapDataTime() is:20230519
+
+2023-05-19 17:52:25	INFO	handle/tm_monitor_part.go:296	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"10.182.1.41","optype":"restoredata","snap_data_time":"20230519", "token":"3333"} i:0 prevRune:-1}
+2023-05-19 17:52:25	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:57:42	INFO	tmwatch_server/main.go:34	Shutdown Server ...
+2023-05-19 17:57:44	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
+2023-05-19 17:57:44	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
+2023-05-19 17:57:46	INFO	tmwatch_server/main.go:23	tm watch server--start!
+2023-05-19 17:57:46	INFO	tmwatch_server/main.go:24	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-19 17:57:46	INFO	tmwatch_server/main.go:25	get config.toml for server TMClusterMonitor info ===>:{7 120 8546 3333}:
+2023-05-19 17:57:46	INFO	tmwatch_server/main.go:26	get config.toml for TMClusterMonitor's TmMonitor is ===>:{https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef tm节点恢复正常 tm节点异常 5 5}:
+2023-05-19 17:57:46	INFO	tmwatch_server/main.go:27	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:250	cur GetTMClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:57:46	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:57:46	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:57:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:57:47	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:57:47	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:57:51	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:57:51	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:57:51	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:57:51	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4889 106.3.133.178} {4889 210.73.218.171} {4887 210.73.218.172} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:259	after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4889,lastMaxHeight is:0,
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:57:51	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:57:51	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:57:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {0 101.251.223.190} {4889 210.73.218.171} {4889 106.3.133.178} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :1,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 17:57:56	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 17:57:56	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 17:58:01	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:58:01	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 17:58:01	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:58:01	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 17:58:01	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 17:58:01	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 17:58:01	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {4889 106.3.133.178} {0 101.251.223.190} {4889 210.73.218.171} {0 106.3.133.180} {0 106.3.133.179}]},err is:<nil> 
+
+2023-05-19 17:58:01	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :2,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 17:58:11	INFO	handle/tm_monitor_part.go:272	cur check dingding GenErrMsg(), to send content info: {"msgtype":"text","text":{"alarm_level_info":"tmwatch_SnapRecover\u0026grade1","content":[{"Title":"tm节点异常","IP":"106.3.133.178","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.179","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.180","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.171","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.172","LocalHeight":4887,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"101.251.223.190","LocalHeight":0,"ClusterHeight":4889}]}}
+
+2023-05-19 17:58:11	INFO	handle/tm_monitor_part.go:277	cur check tmchain is increase no errtimes is :2,newMaxHeight is :4889,to invoke SendCompressBscRequest()
+
+2023-05-19 17:58:11	INFO	handle/tm_monitor_part.go:280	cur nowtime is is::1684490291,getSnapDataTime() is:20230519
+
+2023-05-19 17:58:11	INFO	handle/tm_monitor_part.go:296	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"10.182.1.41","optype":"restoredata","snap_data_time":"20230519", "token":"3333"} i:0 prevRune:-1}
+2023-05-19 17:58:11	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 18:09:47	INFO	tmwatch_server/main.go:34	Shutdown Server ...
+2023-05-19 18:09:49	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
+2023-05-19 18:09:49	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
+2023-05-19 18:10:36	INFO	tmwatch_server/main.go:23	tm watch server--start!
+2023-05-19 18:10:36	INFO	tmwatch_server/main.go:24	get config.toml info ===>:{7777 info tmwatch_server.log}:
+2023-05-19 18:10:36	INFO	tmwatch_server/main.go:25	get config.toml for server TMClusterMonitor info ===>:{7 120 8546 3333}:
+2023-05-19 18:10:36	INFO	tmwatch_server/main.go:26	get config.toml for TMClusterMonitor's TmMonitor is ===>:{https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef tm节点恢复正常 tm节点异常 5 5}:
+2023-05-19 18:10:36	INFO	tmwatch_server/main.go:27	get config.toml' Host'TM info ===>:[{106.3.133.178} {106.3.133.179} {106.3.133.180} {210.73.218.171} {210.73.218.172} {101.251.223.190}]:
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:250	cur GetTMClusterHStatus(), get tm's IPlist: [106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 18:10:36	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 18:10:36	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 18:10:36	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 18:10:41	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 18:10:41	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 18:10:41	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 18:10:41	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{0 101.251.223.190} {4887 210.73.218.172} {4889 106.3.133.178} {4889 210.73.218.171} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:259	after GetTMClusterHStatus(), check tmchain height is increase! get newMaxHeight is :4889,lastMaxHeight is:0,
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 18:10:41	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 18:10:41	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 18:10:41	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {0 101.251.223.190} {4889 106.3.133.178} {4889 210.73.218.171} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :1,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:191	to check tm GetBjIps()' ip list len is:6, info is:[106.3.133.178 106.3.133.179 106.3.133.180 210.73.218.171 210.73.218.172 101.251.223.190]
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :4,tmHeight: 210.73.218.172:4887
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4887 210.73.218.172} <nil>}
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :3,tmHeight: 210.73.218.171:4889
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 210.73.218.171} <nil>}
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:210	get GetTmHeight() res info : serion id :0,tmHeight: 106.3.133.178:4889
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{4889 106.3.133.178} <nil>}
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:101.251.223.190, height is:0:,err is:Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused
+
+2023-05-19 18:10:46	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 101.251.223.190} Get "http://101.251.223.190:46657/tri_abci_info": dial tcp 101.251.223.190:46657: connect: connection refused}
+2023-05-19 18:10:46	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :101.251.223.190,height is:0，to restart the node!
+2023-05-19 18:10:51	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.179, height is:0:,err is:Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 18:10:51	ERROR	handle/tm_monitor_part.go:205	cur GetTmHeight() res error! ,cur node ip:106.3.133.180, height is:0:,err is:Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+2023-05-19 18:10:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.179} Get "http://106.3.133.179:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 18:10:51	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.179,height is:0，to restart the node!
+2023-05-19 18:10:51	INFO	handle/tm_monitor_part.go:217	get cur chan result infois :{{0 106.3.133.180} Get "http://106.3.133.180:46657/tri_abci_info": context deadline exceeded (Client.Timeout exceeded while awaiting headers)}
+2023-05-19 18:10:51	ERROR	handle/tm_monitor_part.go:219	cur req tm node rpc is error! cur node Ip is :106.3.133.180,height is:0，to restart the node!
+2023-05-19 18:10:51	INFO	handle/tm_monitor_part.go:255	after check all tm's IPlist,by GetTMClusterHStatus() getinfo: {[{4887 210.73.218.172} {4889 210.73.218.171} {4889 106.3.133.178} {0 101.251.223.190} {0 106.3.133.179} {0 106.3.133.180}]},err is:<nil> 
+
+2023-05-19 18:10:51	ERROR	handle/tm_monitor_part.go:263	after GetTMClusterHStatus() ,check tmchain height is increase no ! errtimes is :2,get newMaxHeight is :4889,lastMaxHeight is:4889,
+
+2023-05-19 18:11:01	INFO	handle/tm_monitor_part.go:272	cur check dingding GenErrMsg(), to send content info: {"msgtype":"text","text":{"alarm_level_info":"tmwatch_SnapRecover\u0026grade1","content":[{"Title":"tm节点异常","IP":"106.3.133.178","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.179","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"106.3.133.180","LocalHeight":0,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.171","LocalHeight":4889,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"210.73.218.172","LocalHeight":4887,"ClusterHeight":4889},{"Title":"tm节点异常","IP":"101.251.223.190","LocalHeight":0,"ClusterHeight":4889}]}}
+
+2023-05-19 18:11:01	INFO	handle/tm_monitor_part.go:277	cur check tmchain is increase no errtimes is :2,newMaxHeight is :4889,to invoke SendCompressBscRequest()
+
+2023-05-19 18:11:01	INFO	handle/tm_monitor_part.go:280	cur nowtime is is::1684491061,getSnapDataTime() is:20230519
+
+2023-05-19 18:11:01	INFO	handle/tm_monitor_part.go:300	send tmnode snaprecover for tm' request :&{s:{"auto_ip":"10.182.1.41","optype":"restoredata","snap_data_time":"20230519", "token":"3333"} i:0 prevRune:-1}
+2023-05-19 18:11:01	INFO	handle/tm_monitor_part.go:312	send tmnode snaprecover for tm' response is cursnaprecoverres :{Msg:cur async handle invokeScriptName is exist no!}
+2023-05-19 18:11:01	INFO	handle/tm_monitor_part.go:286	cur check tmchain to sleep,interval is :7
+
+2023-05-19 18:11:33	INFO	tmwatch_server/main.go:34	Shutdown Server ...
+2023-05-19 18:11:35	INFO	tmwatch_server/main.go:41	timeout of 2 seconds.
+2023-05-19 18:11:35	INFO	tmwatch_server/main.go:43	auto_tmwatch_server exiting
