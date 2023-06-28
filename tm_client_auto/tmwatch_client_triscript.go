@@ -55,6 +55,9 @@ func main() {
 
 	log.Logger.Infof("tm watch client--start!")
 	log.Logger.Infof("get config.toml of client info ===>:%v:", config.Conf.Service)
+	//0626sdd
+
+	log.Logger.Infof("get config.toml of NodeMonitorCfg info ===>:%v:", config.Conf.NodeMonitorConfig)
 
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
@@ -67,6 +70,8 @@ func main() {
 		Addr:    fmt.Sprintf(":%d", port),
 		Handler: r,
 	}
+	//0626add,start thread to check tmnode status
+	StartMonitorTM(config.Conf.NodeMonitorConfig)
 	go func() {
 		// service connections
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {

@@ -1,22 +1,4 @@
 
-# tm落后节点监视器
-[tm-monitor]
-
-  # 钉钉机器人接口
-  ding-url = "https://oapi.dingtalk.com/robot/send?access_token=48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef"
-  #48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef
-  # 钉钉安全设置,节点正常消息前缀
-  ok-prefix-key = "tm节点恢复正常"
-
-  # 钉钉安全设置,节点异常消息前缀
-  err-prefix-key = "tm节点异常"
-
-  # 获取块高时间间隔,单位为秒
-  interval = 5
-
-  # 获取块高时间间隔,单位为秒
-  ding-token = "48679669f51e7aa89c4544b17bfc4c1e4a565b975d067cf3fa420b0ae0c255ef"
-
 # 本服务配置
 [service-conf]
 
@@ -31,3 +13,13 @@
   access-token = "3333"
   # 调用执行的tm脚本文件名
   invoke-script-name = "tmnode_snapdata0419KK.sh"
+
+
+# 检测节点状态配置
+[service-conf-monitor]
+  #检测节点接口间隔时间
+  request_tm_interval = 60
+  #重启节点服务间隔时间
+  operator_sys_interval = 30
+  #节点服务启动方式
+  start_mode = 0

@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"github.com/mkideal/log"
 	"github.com/pelletier/go-toml/v2"
 	"os"
 )
@@ -41,12 +42,28 @@ type ServiceConf struct {
 
 type Config struct {
 	//TmServer          TmConf         `toml:"tm-conf" comment:"tm链server ip"`
-	TmMonitor Monitor     `toml:"tm-monitor" comment:"tm落后节点监视器"`
-	Service   ServiceConf `toml:"service-conf" comment:"本服务配置"`
+	TmMonitor         Monitor                   `toml:"tm-monitor" comment:"tm落后节点监视器"`
+	Service           ServiceConf               `toml:"service-conf" comment:"本服务配置"`
+	NodeMonitorConfig ConfigMonitorInfomationTM `toml:"service-conf-monitor" comment:"检测节点状态配置"`
+}
+
+// 0626add,from tmnode watch，重启节点服务间隔时间
+type ConfigMonitorInfomationTM struct {
+	RequestTmInterval   int `toml:"request_tm_interval" comment:"检测节点接口间隔时间"`
+	OperatorSysInterval int `toml:"operator_sys_interval" comment:"重启节点服务间隔时间"`
+	StartMode           int `toml:"start_mode" comment:"节点服务启动方式"`
 }
 
 func init() {
 	//LoadConf()
+}
+
+func InitWithProviders(providers, dir string) error {
+	return log.Init(providers, log.M{
+		"rootdir":     dir,
+		"suffix":      ".txt",
+		"date_format": "%04d-%02d-%02d",
+	})
 }
 
 func LoadConf() *Config {
