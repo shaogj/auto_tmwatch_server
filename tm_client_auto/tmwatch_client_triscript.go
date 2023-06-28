@@ -59,7 +59,6 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 	//r.Use(handle.RequestLoggerMiddleware())
-	r.POST("/add_validators", handle.AddValidators)
 
 	r.POST("/sync_tm_snapdata", handle.SyncTmSnapData)
 	port := config.Conf.Service.Port

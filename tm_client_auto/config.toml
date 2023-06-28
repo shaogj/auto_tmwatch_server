@@ -1,8 +1,4 @@
 
-# tm链server ip
-[tm-conf]
-  ip = "210.73.218.171"
-
 # tm落后节点监视器
 [tm-monitor]
 

@@ -111,24 +111,21 @@ func isFileExist(fileName string) bool {
 func sendTmSnapScriptCmd(invokeScriptName, optype, realsnaptimedir string) error {
 	curPath := GetAppPath()
 	timeToday := time.Now().Format("20060102_1504")
-	fileTime := realsnaptimedir
 
 	redirtmFile := fmt.Sprintf("%s/client_recoverruntm%s.log", curPath, timeToday)
 	log.Logger.Infof("In sendScriptCmd(),check redirFile is:%s", redirtmFile)
-	//./bscnode_snapdata_local.sh from 192.168.1.224 0525
-	fileTime = "0525"
 	trustConfigPath := fmt.Sprintf("%s/%s", curPath, "bscnode_snapdata_local.sh")
 	log.Logger.Infof("to exec snapdataCheck file is :%s", trustConfigPath)
-	curTotalCmd := fmt.Sprintf("%s %s %s %s > %s 2>&1", trustConfigPath, "from", "192.168.1.224", fileTime, redirtmFile)
-	//tmnode_snapdata0419.sh
+	//0608doing:,checking cmd good!
+	//curTotalCmd := fmt.Sprintf("%s %s %s %s > %s 2>&1", trustConfigPath, "from", "192.168.1.224", fileTime, redirtmFile)
 	tmnode_snapdatash := invokeScriptName
 	curRealShellCmd := fmt.Sprintf("%s/%s %s %s > %s 2>&1", curPath, tmnode_snapdatash, optype, realsnaptimedir, redirtmFile)
 	log.Logger.Infof("checking Online curRealShellCmd---> to exec tm cmd info is:%s", curRealShellCmd)
 
 	//0511:/home/dev-user/tmnode_snapdata0419.sh restoredata 20230428
-
-	log.Logger.Infof("start exec bscnode_snapdata.sh!,cmd is :%v:", curTotalCmd)
-	pcmdres, err := RunCommand(curTotalCmd)
+	//0608doing: STD online file to recover TM snap data;
+	//log.Logger.Infof("start exec bscnode_snapdata.sh!,cmd is :%v:", curTotalCmd)
+	pcmdres, err := RunCommand(curRealShellCmd) //curTotalCmd)
 	if err != nil {
 		log.Logger.Errorf("after execcmd,get execResult failed! cur request'realsnaptimedir is:%s", realsnaptimedir)
 	}
@@ -176,25 +173,6 @@ func SyncTmSnapData(c *gin.Context) {
 	log.Logger.Info("cur async handle sync data sendTmSnapScriptCmd() return. syncDataRequest.SnapDataTime=%s", syncDataRequest.SnapDataTime)
 
 	c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync tm data success!"})
-}
-func AddValidators(c *gin.Context) {
-	log.Logger.Info("start AddValidators---PPP--AA", c.Request)
-	var ipdata IPData
-
-	if err := c.BindJSON(&ipdata); err != nil {
-		return
-	}
-	log.Logger.Info("fun=AddValidators() bef--,request=%v", ipdata)
-	//if ipdata.Token != config.Conf.Service
-	if ipdata.Token != "4444" {
-		log.Logger.Errorf("fun=AddValidators() requeset's Token is err,to break handle ,ipdata.Token=%v", ipdata)
-		c.IndentedJSON(http.StatusBadRequest, gin.H{"msg": "async request AddValidators, StatusBadRequest!"})
-		return
-	}
-	log.Logger.Info("receive request addValidators success! to handle request=%v", ipdata)
-
-	c.IndentedJSON(http.StatusOK, gin.H{"msg": "async request sync data success!"})
-
 }
 func RequestLoggerMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
